@@ -233,7 +233,7 @@
           <label class="form-det" for=""
             >How many hours per week are you able to commit to this program
             (dedicated to learning, doing assignments, and peer/instructor
-            interaction) <br />
+            interaction)
             over the seven months you are enrolled?
           </label>
           <br />
