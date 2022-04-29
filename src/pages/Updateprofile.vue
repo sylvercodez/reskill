@@ -1,28 +1,18 @@
 <template>
+<div class="box-par">
   <div class="wrapper container q-pt-xl">
-    <!-- <p class="top-text text-left text-weight-bold text-primary">
-      Sign Up
-    </p> -->
-
-    <!-- {{ form }} -->
-    <!-- {{ tech_experience }} -->
-
-    <div class="eight">
-      <h3><span class="login-text">Apply</span></h3>
+     <div class="eight q-my-lg">
+      <h4 class="header-text">Enroll Now</h4>
     </div>
-
-    <!-- <div class="text-red q-mb-sm">
-      {{ resp }}
-    </div> -->
     <div class="error" v-if="inputErr">
       {{ inputErr }}
     </div>
-    <form @submit.prevent="submit">
+    <form @submit.prevent="submit" class="form-box">
       <div class="input-wrap">
-        <label class="text-primary" for="">Name</label> <br />
+        <label class="form-det" for="">Name</label> <br />
 
         <div class="input">
-          <i class="ri-user-fill q-mr-md text-primary"></i>
+          <i class="ri-user-fill q-mr-md icon-enroll"></i>
 
           <input
             disabled
@@ -34,10 +24,10 @@
         </div>
       </div>
       <div class="input-wrap">
-        <label class="text-primary" for="">Email</label> <br />
+        <label class="form-det" for="">Email</label> <br />
 
         <div class="input">
-          <i class="ri-mail-line q-mr-md text-primary"></i>
+          <i class="ri-mail-line q-mr-md icon-enroll"></i>
 
           <input
             disabled
@@ -51,10 +41,10 @@
       </div>
 
       <div class="input-wrap">
-        <label class="text-primary" for="">Linkedin Profile URL</label> <br />
+        <label class="form-det" for="">Linkedin Profile URL</label> <br />
 
         <div class="input">
-          <i class="ri-shield-user-fill q-mr-md text-primary"></i>
+          <i class="ri-shield-user-fill q-mr-md icon-enroll"></i>
 
           <input
             disabled
@@ -67,11 +57,11 @@
       </div>
 
       <!-- <div class="input-wrap">
-        <label class="text-primary" for="">City/State of Residence</label>
+        <label class="form-det" for="">City/State of Residence</label>
         <br />
 
         <div class="input">
-          <i class="ri-mail-line q-mr-md text-primary"></i>
+          <i class="ri-mail-line q-mr-md icon-enroll"></i>
 
           <input
 
@@ -83,34 +73,34 @@
       </div> -->
       <div class="two">
         <div class="input-wrap">
-          <label class="text-primary" for=""
-            >Time zone (for assigning to a learning group)
+          <label class="form-det" for=""
+            >Time zone
           </label>
           <br />
 
           <div class="input">
-            <i class="ri-time-fill q-mr-md text-primary"></i>
+            <i class="ri-time-fill q-mr-md icon-enroll"></i>
 
             <input
               type="text"
               name="timezone"
               v-model="timezone"
-              placeholder="Timezone"
+              placeholder=""
             />
           </div>
           <span class="error">{{ timezoneErr }}</span>
         </div>
         <div class="input-wrap">
-          <label class="text-primary" for="">Phone Number</label> <br />
+          <label class="form-det" for="">Phone Number</label> <br />
 
           <div class="input">
-            <i class="ri-phone-fill q-mr-md text-primary"></i>
+            <i class="ri-phone-fill q-mr-md icon-enroll"></i>
 
             <input
               type="text"
               name="phone"
               v-model="phone"
-              placeholder="Phone number"
+              placeholder=""
             />
           </div>
           <span class="error">{{ phoneErr }}</span>
@@ -119,11 +109,11 @@
 
       <div class="two">
         <div class="input-wrap">
-          <label class="text-primary" for="">Minority Representation</label>
+          <label class="form-det" for="">Minority Representation</label>
           <br />
 
           <div class="input">
-            <i class="ri-apps-fill q-mr-md text-primary"></i>
+            <i class="ri-apps-fill q-mr-md icon-enroll"></i>
 
             <select name="representation" v-model="representation" id="">
               <option value="native american">Native American</option>
@@ -137,11 +127,11 @@
           <span class="error">{{ representationErr }}</span>
         </div>
         <div class="input-wrap">
-          <label class="text-primary" for="">Gender</label>
+          <label class="form-det" for="">Gender</label>
           <br />
 
           <div class="input">
-            <i class="ri-group-line q-mr-md text-primary"></i>
+            <i class="ri-group-line q-mr-md icon-enroll"></i>
 
             <select name="gender" v-model="gender" id="">
               <option value="male">Male</option>
@@ -155,11 +145,11 @@
       </div>
       <div class="two">
         <div class="input-wrap">
-          <label class="text-primary" for="">Age Group</label>
+          <label class="form-det" for="">Age Group</label>
           <br />
 
           <div class="input">
-            <i class="ri-calendar-fill q-mr-md text-primary"></i>
+            <i class="ri-calendar-fill q-mr-md icon-enroll"></i>
 
             <select name="age_group" v-model="age_group" id="">
               <option value="16 - 17">16 - 17</option>
@@ -173,11 +163,11 @@
           <span class="error">{{ age_groupErr }}</span>
         </div>
         <div class="input-wrap">
-          <label class="text-primary" for="">Employment status</label>
+          <label class="form-det" for="">Employment status</label>
           <br />
 
           <div class="input">
-            <i class="ri-star-fill q-mr-md text-primary"></i>
+            <i class="ri-star-fill q-mr-md icon-enroll"></i>
 
             <select name="employment_status" v-model="employment_status" id="">
               <option value="Employed full-time">Employed full-time</option>
@@ -191,13 +181,13 @@
       </div>
       <div class="two">
         <div class="input-wrap">
-          <label class="text-primary" for=""
+          <label class="form-det" for=""
             >Highest level of school completed:
           </label>
           <br />
 
           <div class="input">
-            <i class="ri-book-fill q-mr-md text-primary"></i>
+            <i class="ri-book-fill q-mr-md icon-enroll"></i>
 
             <select name="highest_school" v-model="highest_school" id="">
               <option value="No diploma">No diploma</option>
@@ -221,12 +211,12 @@
           <span class="error">{{ highest_schoolErr }}</span>
         </div>
         <div class="input-wrap">
-          <label class="text-primary" for=""
+          <label class="form-det" for=""
             >Are you authorized to work in the United States?
           </label>
           <br />
           <div class="input">
-            <i class="ri-flag-fill q-mr-md text-primary"></i>
+            <i class="ri-flag-fill q-mr-md icon-enroll"></i>
 
             <select name="can_work_in_usa" v-model="can_work_in_usa" id="">
               <option value="Yes">Yes</option>
@@ -240,7 +230,7 @@
 
       <div class="q-my-md">
         <div class="input-wrap">
-          <label class="text-primary" for=""
+          <label class="form-det" for=""
             >How many hours per week are you able to commit to this program
             (dedicated to learning, doing assignments, and peer/instructor
             interaction) <br />
@@ -249,7 +239,7 @@
           <br />
 
           <div class="input">
-            <i class="ri-timer-fill q-mr-md text-primary"></i>
+            <i class="ri-timer-fill q-mr-md icon-enroll"></i>
 
             <select name="hours_per_week" v-model="hours_per_week" id="">
               <option value="15 hours per week">
@@ -267,31 +257,31 @@
         </div>
 
         <div class="input-wrap">
-          <label class="text-primary" for="">List Major </label>
+          <label class="form-det" for="">Field of study (If any) </label>
           <br />
 
           <div class="input">
-            <i class="ri-book-fill q-mr-md text-primary"></i>
+            <i class="ri-book-fill q-mr-md icon-enroll"></i>
             <input
               type="text"
               name="list_amjor"
               v-model="list_amjor"
-              placeholder="list major"
+              placeholder=""
             />
           </div>
           <span class="error">{{ listmajorErr }}</span>
         </div>
       </div>
 
-      <div class="three">
+
         <div class="input-wrap">
-          <label class="text-primary" for=""
+          <label class="form-det" for=""
             >Which learning track are you considering?
           </label>
           <br />
 
           <div class="input">
-            <i class="ri-bookmark-fill q-mr-md text-primary"></i>
+            <i class="ri-bookmark-fill q-mr-md icon-enroll"></i>
 
             <select name="learning_track" v-model="learning_track" id="">
               <option value="Full-Stack Web Development">
@@ -306,13 +296,13 @@
           <span class="error">{{ learning_trackErr }}</span>
         </div>
         <div class="input-wrap">
-          <label class="text-primary" for=""
+          <label class="form-det" for=""
             >Which best describes your tech experience:
           </label>
           <br />
 
           <div class="input">
-            <i class="ri-inbox-fill q-mr-md text-primary"></i>
+            <i class="ri-inbox-fill q-mr-md icon-enroll"></i>
 
             <select name="tech_experience" v-model="tech_experience" id="">
               <option value="No experience">
@@ -333,13 +323,13 @@
           <span class="error">{{ tech_experienceErr }}</span>
         </div>
         <div class="input-wrap">
-          <label class="text-primary" for="">
+          <label class="form-det" for="">
             How did you hear about us?
           </label>
           <br />
 
           <div class="input">
-            <i class="ri-funds-line q-mr-md text-primary"></i>
+            <i class="ri-funds-line q-mr-md icon-enroll"></i>
 
             <select name="referral" v-model="referral" id="">
               <option value="Social media">Social media</option>
@@ -355,14 +345,14 @@
           </div>
           <span class="error">{{ referralErr }}</span>
         </div>
-      </div>
 
-      <div class="button q-py-xl q-mt-sm text-center">
+      <div class="button q-py-md q-mt-sm text-center">
         <!-- <button class="btn">Register</button> -->
-        <q-btn type="submit" class="btn q-py-sm q-px-xl">Apply</q-btn>
+        <q-btn type="submit" class="btn buttonss ">Enroll</q-btn>
       </div>
     </form>
   </div>
+</div>
 </template>
 
 <script>
@@ -706,6 +696,7 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
 p {
   margin-bottom: 4px;
 }
@@ -713,7 +704,26 @@ p {
 .login-text {
   margin-top: -10px;
 }
+.buttonss{
 
+   width: 130px;
+   font-family: 'Mulish';
+font-style: normal;
+font-weight: 800;
+font-size: 18px !important;
+line-height: 22px;
+/* or 122% */
+text-transform: none;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.3px;
+
+/* Light / White */
+
+color: #FFFFFF;
+
+}
 .wrapper {
   width: 90%;
   display: flex;
@@ -723,6 +733,7 @@ p {
   max-width: 1300px;
 
   height: 100%;
+  padding-bottom: 120px;
 }
 input::placeholder {
   font-size: 15px;
@@ -760,14 +771,31 @@ input::placeholder {
   gap: 2rem;
   align-items: center;
 }
+.form-det{
+  font-family: 'Open Sans';
+font-style: normal;
+font-weight: 300;
+font-size: 20px;
+line-height: 34px;
+/* identical to box height, or 170% */
 
+display: flex;
+align-items: center;
+letter-spacing: 0.3px;
+
+color: #746e6e;
+}
 .three {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   align-items: center;
 }
-
+.icon-enroll{
+  font-size: 21px;
+  padding-left: 10px;
+color: #746e6e;
+}
 .input-wrap {
   margin: 2rem 0;
 }
@@ -786,8 +814,7 @@ select {
 .input-wrap .input {
   /* border: 1px solid #2b945b; */
   padding: 0.75rem;
-  margin: 1rem 0;
-  margin-bottom: 2px;
+
   background: rgba(236, 236, 236, 0.67);
   border: 1px solid rgba(229, 229, 229, 0.2);
   box-sizing: border-box;
@@ -819,15 +846,14 @@ select:focus {
   border: none;
   background-color: #fff;
   padding: 16px 24px 16px 24px;
-  margin: 1rem;
+
   font-size: 1.1rem !important;
   background: #f2594b;
 
-  border-radius: 60px;
   color: #fff;
-  margin: 0.55rem 0;
-  padding: 1rem;
-  width: 50%;
+
+
+  width: 100%;
 }
 
 .eight h3 {
@@ -913,9 +939,30 @@ select:focus {
   display: flex;
   justify-content: space-between;
 }
+.form-box{
+  background-color: #fff;
+  border-radius: 17px;
+  padding: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.header-text{
+  font-family: 'Open Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 53px;
+line-height: 122%;
+/* identical to box height, or 65px */
+text-align: center;
+letter-spacing: 0.3px;
 
+color: #121928;
+}
 .q-tab {
   width: 50% !important;
+}
+.box-par{
+  background-color: #ebf5fb;
 }
 @media (max-width: 500px) {
   .input-wrap .input input:placeholder-shown,

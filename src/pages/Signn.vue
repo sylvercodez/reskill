@@ -1,83 +1,65 @@
 <template>
-  <div class="wrapper container q-pt-sm">
-    <!-- <p class="top-text text-left text-weight-bold text-primary">
-      Login
-    </p> -->
-    <!-- <p class="text-dark">Welcome Back, Sirgappy</p> -->
-<!-- {{form.email}} -->
-    <!-- This div needs to be changed -->
+<div class="parent-main">
+  <div class="wrapper container">
+<div class="">
     <div class="eight q-my-lg">
-      <h3><span class="login-text">Enroll</span></h3>
+      <h4 class="header-text">Enroll</h4>
     </div>
-
     <!-- End of This div needs to be changed -->
     <div class="group">
       <div class="left">
         <div class=" q-mb-lg">
-          <p class="text-dark">
-           Welcome! We are currently accepting enrollment for our 7-month software development training session that starts in June 2022. Please note, in order to enroll, you must:
+          <p class="text-dark text-enroll">
+         Welcome! We are currently accepting enrollment for our 7-month software development training session that starts in June 2022.
+<br>
+<br>
+To enroll, <b>you must:</b>
+<br>
+<br>
           <ul>
-          <li class="q-my-xs"> - Self-identify as a historically underrepresented racial minority.</li >
-          <li class="q-my-xs"> - Be authorized to work in the United States.</li>
-          <li class="q-my-xs"> - Have a LinkedIn profile and photo.</li>
+          <li class="q-my-xs icons"> <div class="icon-box"><img src="images/radio-button-on.png" width="6px" alt=""> </div> <p class="text-enroll">Self-identify as a historically underrepresented racial minority.</p></li >
+          <li class="q-my-xs icons"> <div class="icon-box"><img src="images/radio-button-on.png" width="6px" alt=""> </div> <p class="text-enroll"> Be authorized to work in the United States.</p></li>
+          <li class="q-my-xs icons"> <div class="icon-box"><img src="images/radio-button-on.png" width="6px" alt=""> </div> <p class="text-enroll">Have a LinkedIn profile and photo.</p></li>
           </ul>
           </p>
-          <p class="text-secondary q-mt-lg">
-          Please provide the email linked to your LinkedIn account</p>
-          <!-- <p
-            v-if="errors.length"
-            class="text-white q-mb-xl resp bg-primary q-px-lg q-py-md"
-          >
-            {{ errors[0] }}
-          </p> -->
-          <div class="error" v-if="inputErr">
-            {{ inputErr }}
-          </div>
+          <p class="text-details2 q-mt-lg">
+      *Please provide the email linked to your Linkedin account</p>
+
         </div>
         <form @submit.prevent="submit">
           <div class="input-wrap">
-            <label class="text-primary" for="">Email</label> <br />
 
+<div class=" box-main">
             <div class="input">
-              <i class="ri-mail-line q-mr-md text-primary"></i>
+              <i class="ri-mail-line q-mr-md mail-icons"></i>
 
               <input
               name="email"
                 v-model="form.email"
                 type="email"
-                placeholder="Enter your email"
+                placeholder="Email"
               />
             </div>
-          <!-- <span class="error">{{ emailErr }}</span> -->
-
-            <!-- <div class="error" v-if="inputErr">
-              {{ inputErr }}
-            </div> -->
+   <div class="button ">
+            <q-btn type="submit" class="btn buttonss">Enroll</q-btn>
+          </div>
+          </div>
           </div>
 
-          <!-- <div class="input-wrap">
-            <label class="text-primary" for="">Phone</label> <br />
 
-            <div class="input">
-              <i class="ri-phone-fill q-mr-md text-primary"></i>
 
-              <input
-                v-model="form.phone"
-                type="text"
-                placeholder="Enter your number"
-              />
-            </div>
-            <div class="error" v-if="inputErr">
-              {{ inputErr }}
-            </div>
-          </div> -->
 
-          <div class="button q-py-xl q-mt-sm text-center">
-            <q-btn type="submit" class="btn q-py-sm q-px-xl">Enroll</q-btn>
+
+          <div class="error" v-if="inputErr">
+            {{ inputErr }}
           </div>
         </form>
       </div>
     </div>
+
+  </div>
+  </div>
+  <div><img src="images/Tasha at computer3.jpg" class="tasha" alt=""></div>
   </div>
 </template>
 
@@ -90,24 +72,9 @@ import axios from "axios";
 export default {
   setup() {
     const $q = useQuasar();
-    // const simpleSchema = {
-    //   email(value) {
-    //     if (value.length < 5) {
-    //       return "this field must contain at least 5 characters";
-    //     }
-    //     return true;
-
-    //     // validate email value and return messages...
-    //   },
-    //   }
-    //     useForm({
-    //   validationSchema: simpleSchema,
-    // });
-
-    // const { value: email, errorMessage: emailErr } = useField("email");
 
     return {
-    
+
     };
   },
   data() {
@@ -156,7 +123,7 @@ export default {
             });
 
 
-            
+
           }
           console.log(response);
           axios.get(`https://linkedin-signin-prototype.herokuapp.com/api/users/${this.form.email}`).then((resp)=>{
@@ -172,10 +139,10 @@ export default {
               color: "secondary",
               position: "top",
             });
-            
+
             this.$router.replace("/update");
-            
-            
+
+
           }else if(response.data.error === "User Account Already Exists" && enrolled === true){
             console.log(response);
             this.inputErr ='You already enrolled, click learn more to know more about us and this program';
@@ -187,48 +154,19 @@ export default {
               color: "primary",
               position: "top",
             });}
-       
 
-          
+
+
           })
-          
-          // if (response.data.error === "User Account Already Exists") {
-          //   axios
-          //     .get(
-          //       `https://linkedin-signin-prototype.herokuapp.com/api/users/${this.form.email}`
-          //     )
-          //     .then((resp) => {
-          //       console.log(resp);
-
-          //       // alert(resp);
-          //       localStorage.setItem(
-          //         "userDetails",
-          //         JSON.stringify(resp.data.payload)
-          //       );
-          //       this.$q.notify({
-          //         message: "Fill in your profile",
-          //         color: "primary",
-          //         position: "top",
-          //       });
-          //       this.$router.replace("/update");
-          //     });
-          // } else {
-          //   console.log(response);
-          //   this.inputErr = response.data.error;
-          //   setTimeout(() => {
-          //     this.inputErr = "";
-          //   }, 4000);
-          // }
         });
-      //   localStorage.setItem("userDetails", JSON.stringify(resp.data.payload));
 
-      //   this.$router.replace("/update");
     },
   },
 };
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
 p {
   margin-bottom: 0;
 }
@@ -246,33 +184,109 @@ p {
   font-size: 1rem;
 }
 input::placeholder {
-  font-size: 14px;
+
   opacity: 0.5;
+  font-family: 'Open Sans';
+font-style: normal;
+font-weight: 300;
+font-size: 20px;
+line-height: 34px;
+/* identical to box height, or 170% */
+
+display: flex;
+align-items: center;
+letter-spacing: 0.3px;
+
+color: #000000;
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
+  max-width: 1440px;
+  width: 70%;
+  margin: auto;
+
+  padding-bottom: 120px;
+
   overflow: hidden;
   height: 100%;
   padding-top: 7rem;
-  max-width: 800px;
-}
 
+}
+.text-enroll{
+  width: 70%;
+  font-family: 'Open Sans';
+font-style: normal;
+font-weight: 300;
+font-size: 20px;
+line-height: 130%;
+/* or 26px */
+
+letter-spacing: 0.3px;
+
+color: #121928;
+}
+.box-main{
+  display: flex;
+}
+.tasha{
+  width: 120% !important;
+  margin-top: -50px;
+  margin-left: -72px;
+}
+.parent-main{
+display: flex;
+flex-direction: row;
+width: 80%;
+margin: auto;
+max-width: 1440px;
+align-items: center;
+}
 .error {
-  color: red;
+ font-family: 'Open Sans';
+font-style: italic;
+font-weight: 700;
+font-size: 20px;
+line-height: 130%;
+/* identical to box height, or 26px */
+
+letter-spacing: 0.3px;
+
+color: #F2594B;
+}
+.text-details2{
+  font-family: 'Open Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 130%;
+/* identical to box height, or 26px */
+
+letter-spacing: 0.3px;
+
+color: #3C64B1;
+}
+.header-text{
+  font-family: 'Open Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 53px;
+line-height: 122%;
+/* identical to box height, or 65px */
+
+letter-spacing: 0.3px;
+
+color: #121928;
 }
 
 .forgot {
   display: flex;
   justify-content: flex-end;
 }
-@media (max-width: 900px) {
-  .wrapper {
-    padding-top: 2rem;
-    height: 100%;
-  }
+@media (max-width: 1200px) {
+
   .forgot {
     display: flex;
     justify-content: flex-start;
@@ -284,6 +298,26 @@ input::placeholder {
     gap: 2rem;
     align-items: flex-end;
   }
+}
+.tasha{
+  width: 120% !important;
+  margin-top: -50px;
+  margin-left: -72px;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 1440px;
+  width: 70%;
+  margin: auto;
+
+  padding-bottom: 120px;
+
+  overflow: hidden;
+  height: 100%;
+  padding-top: 7rem;
+
 }
 
 .heeder {
@@ -310,7 +344,41 @@ input::placeholder {
 .input-wrap,
 select {
   width: 100%;
-  margin-bottom: 2px;
+
+}
+.buttonss{
+   height: 73px;
+   width: 160px;
+   font-family: 'Mulish';
+font-style: normal;
+font-weight: 800;
+font-size: 18px !important;
+line-height: 22px;
+/* or 122% */
+text-transform: none;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.3px;
+
+/* Light / White */
+
+color: #FFFFFF;
+
+}
+.icons{
+display: flex;
+align-items: center;
+}
+.icon-box{
+  display: flex;
+  padding-right: 6px;
+  align-items: center;
+}
+.mail-icons{
+  color: rgba(0, 0, 0, 0.22);
+  font-size: 30px;
+  padding-left: 12px;
 }
 .error {
   font-size: 0.9em;
@@ -319,13 +387,14 @@ select {
 .input-wrap .input {
   /* border: 1px solid #2b945b; */
   padding: 0.75rem;
-  margin: 1rem 0;
+width: 400px;
   margin-bottom: 2px;
   background: rgba(236, 236, 236, 0.67);
   border: 1px solid rgba(229, 229, 229, 0.2);
   box-sizing: border-box;
-  border-radius: 5px;
+
   display: flex;
+  height: 73px;
   align-items: center;
 }
 
@@ -351,13 +420,13 @@ select:focus {
   border: none;
   background: #f2594b;
 
-  margin: 1rem;
-  border-radius: 60px;
-  font-size: 1.1rem !important;
+
+
+
   color: #fff;
-  margin: 0.55rem 0;
+
   padding: 1rem;
-  width: 60%;
+
 }
 
 .eight h3 {
@@ -413,16 +482,100 @@ select:focus {
   width: 20px;
   height: 20px;
 }
+@media (max-width: 1090px) {
+  .text-enroll{
+  width: 100%;
+  }
+  .tasha{
+  width: 120% !important;
+  margin-top: -50px;
+  margin-left: inherit;
+}
+  .parent-main{
+display: flex;
+flex-direction: column;
+width: 90%;
+margin: auto;
+align-items: center;
+}
+.tasha{
+  width: 100% !important;
+  margin-top: -50px;
+  margin-bottom: 20px;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+
+  padding-bottom: 120px;
+
+  overflow: hidden;
+  height: 100%;
+  padding-top: 7rem;
+
+}
+  }
 @media (max-width: 500px) {
+
   .log .wrapp p {
     font-size: 11px;
   }
+.wrapper {
+  display: flex;
+  flex-direction: column;
 
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+
+  padding-bottom: 120px;
+
+  overflow: hidden;
+  height: 100%;
+  padding-top: 7rem;
+
+}
   .btn {
     width: 90%;
   }
 }
+.buttonss{
+   height: 73px;
+   width: 140px;
+   font-family: 'Mulish';
+font-style: normal;
+font-weight: 800;
+font-size: 18px !important;
+line-height: 22px;
+/* or 122% */
+text-transform: none;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.3px;
 
+/* Light / White */
+
+color: #FFFFFF;
+
+}
+.input-wrap .input {
+  /* border: 1px solid #2b945b; */
+  padding: 0.75rem;
+width: 430px;
+  margin-bottom: 2px;
+  background: rgba(236, 236, 236, 0.67);
+  border: 1px solid rgba(229, 229, 229, 0.2);
+  box-sizing: border-box;
+
+  display: flex;
+  height: 73px;
+  align-items: center;
+}
 .ri-facebook-box-fill {
   color: #4267b2;
 }
@@ -444,7 +597,7 @@ select:focus {
   width: 50% !important;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 430px) {
   .input-wrap .input input:placeholder-shown,
   select {
     font-size: 14px;
@@ -452,11 +605,58 @@ select:focus {
   .log {
     width: 100%;
   }
+  .buttonss{
+   height: 73px;
+   width: 100px;
+   font-family: 'Mulish';
+font-style: normal;
+font-weight: 800;
+font-size: 18px !important;
+line-height: 22px;
+/* or 122% */
+text-transform: none;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.3px;
 
+/* Light / White */
+
+color: #FFFFFF;
+
+}
+.input-wrap .input {
+  /* border: 1px solid #2b945b; */
+  padding: 0.75rem;
+width: 220px;
+  margin-bottom: 2px;
+  background: rgba(236, 236, 236, 0.67);
+  border: 1px solid rgba(229, 229, 229, 0.2);
+  box-sizing: border-box;
+
+  display: flex;
+  height: 73px;
+  align-items: center;
+}
   .resp {
     padding: 1rem;
     border-radius: 8px;
     font-size: 12px;
   }
+}
+@media (max-width: 350px) {
+  .input-wrap .input {
+  /* border: 1px solid #2b945b; */
+  padding: 0.75rem;
+width: 200px;
+  margin-bottom: 2px;
+  background: rgba(236, 236, 236, 0.67);
+  border: 1px solid rgba(229, 229, 229, 0.2);
+  box-sizing: border-box;
+
+  display: flex;
+  height: 73px;
+  align-items: center;
+}
 }
 </style>
