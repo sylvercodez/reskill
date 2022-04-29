@@ -775,7 +775,7 @@ input::placeholder {
   font-family: 'Open Sans';
 font-style: normal;
 font-weight: 300;
-font-size: 20px;
+font-size: 18px;
 line-height: 34px;
 /* identical to box height, or 170% */
 
@@ -783,7 +783,7 @@ display: flex;
 align-items: center;
 letter-spacing: 0.3px;
 
-color: #746e6e;
+color: #000;
 }
 .three {
   display: grid;
