@@ -4,7 +4,7 @@
       <q-toolbar class="q-pa-lg">
         <q-toolbar-title>
         <a href="/">
-          <img class="logo" src="/images/Logo.svg" alt="" /> </a>
+          <img class="logo" src="/images/logo.png" alt="" /> </a>
         </q-toolbar-title>
 
 

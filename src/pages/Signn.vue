@@ -3,23 +3,26 @@
   <div class="wrapper container">
 <div class="">
     <div class="eight q-my-lg">
-      <h4 class="header-text">Enroll</h4>
+      <h4 class="header-text">Enrollment Form</h4>
     </div>
     <!-- End of This div needs to be changed -->
     <div class="group">
       <div class="left">
         <div class=" q-mb-lg">
           <p class="text-dark text-enroll">
-         Welcome! We are currently accepting enrollment for our 7-month software development training session that starts in June 2022.
+       Welcome!
+ <br /><br/>
+Reskill Americans is currently accepting enrollment for our 7-month software development training session that starts in June 2022. Please note, in order to be considered for enrollment for our upcoming session, you must meet the three minimum requirements listed below, and you must complete and submit the requested information in this enrollment application.
+
+
 <br>
 <br>
-To enroll, <b>you must:</b>
-<br>
-<br>
+
           <ul>
-          <li class="q-my-xs icons"> <div class="icon-box"><img src="images/radio-button-on.png" width="6px" alt=""> </div> <p class="text-enroll">Self-identify as a historically underrepresented racial minority.</p></li >
-          <li class="q-my-xs icons"> <div class="icon-box"><img src="images/radio-button-on.png" width="6px" alt=""> </div> <p class="text-enroll"> Be authorized to work in the United States.</p></li>
-          <li class="q-my-xs icons"> <div class="icon-box"><img src="images/radio-button-on.png" width="6px" alt=""> </div> <p class="text-enroll">Have a LinkedIn profile and photo.</p></li>
+          <li class="q-my-xs icons"> <div class="icon-box"><img src="images/radio-button-on.png" width="6px" alt=""> </div> <p class="text-enroll smal">You must self-identify as a historically underrepresented racial minority.</p></li >
+          <li class="q-my-xs icons"> <div class="icon-box"><img src="images/radio-button-on.png" width="6px" alt=""> </div> <p class="text-enroll smal"> You must be authorized to legally work in the United States.</p></li>
+          <li class="q-my-xs icons"> <div class="icon-box"><img src="images/radio-button-on.png" width="6px" alt=""> </div> <p class="text-enroll smal">You must maintain a current and accurate LinkedIn.com profile that includes a recent photo of yourself.
+</p></li>
           </ul>
           </p>
           <p class="text-details2 q-mt-lg">
@@ -268,6 +271,10 @@ letter-spacing: 0.3px;
 
 color: #3C64B1;
 }
+.smal{
+  font-weight: 500;
+  font-size: 18px;
+}
 .header-text{
   font-family: 'Open Sans';
 font-style: normal;
@@ -349,7 +356,7 @@ select {
 .buttonss{
    height: 73px;
    width: 160px;
-   font-family: 'Mulish';
+   font-family: 'Open Sans';
 font-style: normal;
 font-weight: 800;
 font-size: 18px !important;
@@ -546,7 +553,7 @@ align-items: center;
 .buttonss{
    height: 73px;
    width: 140px;
-   font-family: 'Mulish';
+   font-family: 'Open Sans';
 font-style: normal;
 font-weight: 800;
 font-size: 18px !important;

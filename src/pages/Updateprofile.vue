@@ -8,20 +8,37 @@
       {{ inputErr }}
     </div>
     <form @submit.prevent="submit" class="form-box">
+
       <div class="input-wrap">
-        <label class="form-det" for="">Name</label> <br />
+        <label class="form-det" for="">First Name</label> <br />
 
         <div class="input">
           <i class="ri-user-fill q-mr-md icon-enroll"></i>
 
           <input
             disabled
-            name="name"
+            name="first_name"
             type="text"
-            v-model="form.name"
+            v-model="form.first_name"
             placeholder="Ademola"
           />
         </div>
+      </div>
+      <div class="input-wrap">
+        <label class="form-det" for="">Last Name</label> <br />
+
+        <div class="input">
+          <i class="ri-user-fill q-mr-md icon-enroll"></i>
+
+          <input
+            disabled
+            name="last_name"
+            type="text"
+            v-model="form.last_name"
+            placeholder="Ademola"
+          />
+        </div>
+
       </div>
       <div class="input-wrap">
         <label class="form-det" for="">Email</label> <br />
@@ -56,25 +73,11 @@
         </div>
       </div>
 
-      <!-- <div class="input-wrap">
-        <label class="form-det" for="">City/State of Residence</label>
-        <br />
 
-        <div class="input">
-          <i class="ri-mail-line q-mr-md icon-enroll"></i>
-
-          <input
-
-            type="email"
-            v-model="form.city"
-            placeholder="Enter your city"
-          />
-        </div>
-      </div> -->
       <div class="two">
         <div class="input-wrap">
           <label class="form-det" for=""
-            >Time zone
+            >City, State of Residence (e.g. Seattle, WA)
           </label>
           <br />
 
@@ -109,7 +112,7 @@
 
       <div class="two">
         <div class="input-wrap">
-          <label class="form-det" for="">Minority Representation</label>
+          <label class="form-det" for="">Minority Representation: I identify as</label>
           <br />
 
           <div class="input">
@@ -152,7 +155,6 @@
             <i class="ri-calendar-fill q-mr-md icon-enroll"></i>
 
             <select name="age_group" v-model="age_group" id="">
-              <option value="16 - 17">16 - 17</option>
               <option value="18 - 24">18 - 24</option>
               <option value="25 - 34">25 - 34</option>
               <option value="35 - 44">35 - 44</option>
@@ -163,7 +165,7 @@
           <span class="error">{{ age_groupErr }}</span>
         </div>
         <div class="input-wrap">
-          <label class="form-det" for="">Employment status</label>
+          <label class="form-det" for="">Current Employment Status</label>
           <br />
 
           <div class="input">
@@ -179,7 +181,7 @@
           <span class="error"> {{ employment_statusErr }}</span>
         </div>
       </div>
-      <div class="two">
+
         <div class="input-wrap">
           <label class="form-det" for=""
             >Highest level of school completed:
@@ -210,9 +212,28 @@
           </div>
           <span class="error">{{ highest_schoolErr }}</span>
         </div>
-        <div class="input-wrap">
+          <div class="input-wrap">
+          <label class="form-det" for="">Field of study, if any (e.g. BSc Nursing, or trade certificate in refrigeration mechanics) </label>
+          <br />
+
+          <div class="input">
+            <i class="ri-book-fill q-mr-md icon-enroll"></i>
+            <input
+              type="text"
+              name="list_amjor"
+              v-model="list_amjor"
+              placeholder=""
+            />
+          </div>
+          <span class="error">{{ listmajorErr }}</span>
+
+
+      </div>
+
+
+  <div class="input-wrap">
           <label class="form-det" for=""
-            >Are you authorized to work in the United States?
+            >Are you authorized to legally work in the U.S.?
           </label>
           <br />
           <div class="input">
@@ -226,9 +247,54 @@
 
           <span class="error">{{ can_work_in_usaErr }}</span>
         </div>
-      </div>
 
-      <div class="q-my-md">
+        <div class="input-wrap">
+          <label class="form-det" for=""
+            >Which learning track are you considering?
+          </label>
+          <br />
+
+          <div class="input">
+            <i class="ri-bookmark-fill q-mr-md icon-enroll"></i>
+
+            <select name="learning_track" v-model="learning_track" id="">
+              <option value="Full-Stack Web Development">
+                Full-Stack Web Development
+              </option>
+              <option value="UI/UX Product Design">UI/UX Product Design</option>
+              <option value="Undecided “Learner Category">
+                I haven't decided yet “Learner Category”?
+              </option>
+            </select>
+          </div>
+          <span class="error">{{ learning_trackErr }}</span>
+        </div>
+        <div class="input-wrap">
+          <label class="form-det" for=""
+            >Which best describes your tech experience:
+          </label>
+          <br />
+
+          <div class="input">
+            <i class="ri-inbox-fill q-mr-md icon-enroll"></i>
+
+            <select name="tech_experience" v-model="tech_experience" id="">
+              <option value="No experience">
+              No experience
+              </option>
+              <option value="Some experience/novice">
+               Some experience/novice/self-learner
+
+              </option>
+              <option value=" Experienced/advanced beginner">
+               Experienced/advanced beginner
+              </option>
+            </select>
+          </div>
+          <span class="error">{{ tech_experienceErr }}</span>
+        </div>
+
+
         <div class="input-wrap">
           <label class="form-det" for=""
             >How many hours per week are you able to commit to this program
@@ -256,72 +322,7 @@
           <span class="error">{{ hours_per_weekErr }}</span>
         </div>
 
-        <div class="input-wrap">
-          <label class="form-det" for="">Field of study (If any) </label>
-          <br />
 
-          <div class="input">
-            <i class="ri-book-fill q-mr-md icon-enroll"></i>
-            <input
-              type="text"
-              name="list_amjor"
-              v-model="list_amjor"
-              placeholder=""
-            />
-          </div>
-          <span class="error">{{ listmajorErr }}</span>
-        </div>
-      </div>
-
-
-        <div class="input-wrap">
-          <label class="form-det" for=""
-            >Which learning track are you considering?
-          </label>
-          <br />
-
-          <div class="input">
-            <i class="ri-bookmark-fill q-mr-md icon-enroll"></i>
-
-            <select name="learning_track" v-model="learning_track" id="">
-              <option value="Full-Stack Web Development">
-                Full-Stack Web Development
-              </option>
-              <option value="UI/UX Product Design">UI/UX Product Design</option>
-              <option value="Undecided “Learner Category">
-                Undecided “Learner Category”?
-              </option>
-            </select>
-          </div>
-          <span class="error">{{ learning_trackErr }}</span>
-        </div>
-        <div class="input-wrap">
-          <label class="form-det" for=""
-            >Which best describes your tech experience:
-          </label>
-          <br />
-
-          <div class="input">
-            <i class="ri-inbox-fill q-mr-md icon-enroll"></i>
-
-            <select name="tech_experience" v-model="tech_experience" id="">
-              <option value="No experience">
-                No experience – This will be completely new information.
-              </option>
-              <option value="Some experience/novice">
-                Some experience/novice - Self-learner. I've familiarized myself
-                through self-learning or introductory concepts but haven’t moved
-                into the application of the skills.
-              </option>
-              <option value=" Experienced/advanced beginner">
-                Experienced/advanced beginner? - I’ve acquired many of the
-                skills and can put together simple projects, but don’t yet have
-                a deep understanding or entry-level skills.
-              </option>
-            </select>
-          </div>
-          <span class="error">{{ tech_experienceErr }}</span>
-        </div>
         <div class="input-wrap">
           <label class="form-det" for="">
             How did you hear about us?
@@ -374,20 +375,6 @@ export default {
       }
     });
 
-    // function validateField(value) {
-    //   if (!value) {
-    //     return "this field is required";
-    //   }
-
-    //   if (value.length < 8) {
-    //     return "this field must contain at least 8 characters";
-    //   }
-
-    //   return true;
-    // }
-
-    // const { value, errorMessage } = useField("timezone", validateField);
-    // Define a validation schema
     const simpleSchema = {
       timezone(value) {
         if (!value) {
@@ -609,7 +596,8 @@ export default {
         learning_track: this.userData("learning_track"),
         linkedin_url: this.userData("linkedin_url"),
         location: this.userData("location"),
-        name: this.userData("name"),
+        first_name: this.userData("first_name"),
+        last_name: this.userData("last_name"),
         phone: this.userData("phone"),
         referral: this.userData("referral"),
         representation: this.userData("representation"),
@@ -624,7 +612,8 @@ export default {
     },
     submit() {
       const timezone = this.timezone;
-      const name = this.form.name;
+      const first_name = this.first_name;
+      const last_name = this.form.last_name;
       const email = this.form.email;
       const linkedin_url = this.form.linkedin_url;
       const learning_track = this.learning_track;
@@ -644,7 +633,8 @@ export default {
 
       const formData = {
         timezone,
-        name,
+        first_name,
+        last_name,
         email,
         linkedin_url,
         learning_track,
@@ -703,26 +693,6 @@ p {
 
 .login-text {
   margin-top: -10px;
-}
-.buttonss{
-
-   width: 130px;
-   font-family: 'Mulish';
-font-style: normal;
-font-weight: 800;
-font-size: 18px !important;
-line-height: 22px;
-/* or 122% */
-text-transform: none;
-display: flex;
-align-items: center;
-text-align: center;
-letter-spacing: 0.3px;
-
-/* Light / White */
-
-color: #FFFFFF;
-
 }
 .wrapper {
   width: 90%;
@@ -845,9 +815,9 @@ select:focus {
 .btn {
   border: none;
   background-color: #fff;
-  padding: 16px 24px 16px 24px;
+  padding: 14px 24px 14px 24px;
 
-  font-size: 1.1rem !important;
+  font-size: 18px !important;
   background: #f2594b;
 
   color: #fff;
