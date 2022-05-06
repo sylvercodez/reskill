@@ -10,36 +10,21 @@
     <form @submit.prevent="submit" class="form-box">
 
       <div class="input-wrap">
-        <label class="form-det" for="">First Name</label> <br />
+        <label class="form-det" for="">Full Name</label> <br />
 
         <div class="input">
           <i class="ri-user-fill q-mr-md icon-enroll"></i>
 
           <input
             disabled
-            name="first_name"
+            name="name"
             type="text"
-            v-model="form.first_name"
+            v-model="form.name"
             placeholder="Ademola"
           />
         </div>
       </div>
-      <div class="input-wrap">
-        <label class="form-det" for="">Last Name</label> <br />
-
-        <div class="input">
-          <i class="ri-user-fill q-mr-md icon-enroll"></i>
-
-          <input
-            disabled
-            name="last_name"
-            type="text"
-            v-model="form.last_name"
-            placeholder="Ademola"
-          />
-        </div>
-
-      </div>
+      
       <div class="input-wrap">
         <label class="form-det" for="">Email</label> <br />
 
@@ -597,8 +582,8 @@ export default {
         learning_track: this.userData("learning_track"),
         linkedin_url: this.userData("linkedin_url"),
         location: this.userData("location"),
-        first_name: this.userData("first_name"),
-        last_name: this.userData("last_name"),
+      
+        name: this.userData("name"),
         phone: this.userData("phone"),
         referral: this.userData("referral"),
         representation: this.userData("representation"),
@@ -613,8 +598,8 @@ export default {
     },
     submit() {
       const timezone = this.timezone;
-      const first_name = this.first_name;
-      const last_name = this.form.last_name;
+   
+      const name = this.form.name;
       const email = this.form.email;
       const linkedin_url = this.form.linkedin_url;
       const learning_track = this.learning_track;
@@ -634,8 +619,8 @@ export default {
 
       const formData = {
         timezone,
-        first_name,
-        last_name,
+      
+        name,
         email,
         linkedin_url,
         learning_track,
