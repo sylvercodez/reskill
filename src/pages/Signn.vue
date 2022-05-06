@@ -19,9 +19,9 @@ Reskill Americans is currently accepting enrollment for our 7-month software dev
 <br>
 
           <ul>
-          <li class="q-my-xs icons"> <div class="icon-box"><img src="images/radio-button-on.png" width="6px" alt=""> </div> <p class="text-enroll smal">You must self-identify as a historically underrepresented racial minority.</p></li >
-          <li class="q-my-xs icons"> <div class="icon-box"><img src="images/radio-button-on.png" width="6px" alt=""> </div> <p class="text-enroll smal"> You must be authorized to legally work in the United States.</p></li>
-          <li class="q-my-xs icons"> <div class="icon-box"><img src="images/radio-button-on.png" width="6px" alt=""> </div> <p class="text-enroll smal">You must maintain a current and accurate LinkedIn.com profile that includes a recent photo of yourself.
+          <li class="q-my-xs icons"> <div class="icon-box"><img  style="margin-top: 7px;" src="images/radio-button-on.png" width="6px" alt=""> </div> <p class="text-enroll smal">You must self-identify as a historically underrepresented racial minority.</p></li >
+          <li class="q-my-xs icons"> <div class="icon-box"><img  style="margin-top: 7px;" src="images/radio-button-on.png" width="6px" alt=""> </div> <p class="text-enroll smal"> You must be authorized to legally work in the United States.</p></li>
+          <li class="q-my-xs icons"> <div class="icon-box"><img  style="margin-top: 7px;" src="images/radio-button-on.png" width="6px" alt=""> </div> <p class="text-enroll smal">You must maintain a current and accurate LinkedIn.com profile that includes a recent photo of yourself.
 </p></li>
           </ul>
           </p>
