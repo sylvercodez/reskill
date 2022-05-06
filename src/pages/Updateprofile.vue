@@ -347,7 +347,7 @@
           <span class="error">{{ referralErr }}</span>
         </div>
 <div style="display: flex; align-items:center; margin-top:12px;">
-<input type="checkbox" style="margin-right: 17px;"> <label class="form-det" for="">By submitting this Enrollment Application, you acknowledge that you are currently 18 years of age and that you agree to our Terms of Service and our Privacy Policy </label> </div>
+<input type="checkbox" style="margin-right: 17px;"> <label class="form-det" for="">By submitting this Enrollment Application, you acknowledge that you are currently 18 years of age and that you agree to our <a href="https://reskillamericans.org/terms-of-service" target="_blank">Terms of Service</a> and our <a href="https://reskill-learning.web.app/privacy" target="_blank">Privacy Policy</a> </label> </div>
       <div class="button q-py-md q-mt-sm text-center">
         <!-- <button class="btn">Register</button> -->
         <q-btn type="submit" class="btn buttonss ">Enroll</q-btn>
