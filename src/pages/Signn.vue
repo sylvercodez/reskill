@@ -375,7 +375,7 @@ color: #FFFFFF;
 }
 .icons{
 display: flex;
-align-items: center;
+align-items: flex-start;
 
 }
 .icon-box{
