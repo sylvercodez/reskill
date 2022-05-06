@@ -375,12 +375,13 @@ color: #FFFFFF;
 }
 .icons{
 display: flex;
+align-items: center;
 
 }
 .icon-box{
   display: flex;
   padding-right: 6px;
-  align-items: center;
+  align-items: baseline;
 }
 .mail-icons{
   color: rgba(0, 0, 0, 0.22);
