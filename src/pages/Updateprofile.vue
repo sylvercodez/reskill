@@ -179,7 +179,7 @@
             <select name="highest_school" v-model="highest_school" id="">
               <option value="No diploma">No diploma</option>
               <option value="High school ">High school</option>
-              <option value="College – no degree">College – no degree</option>
+              <option value="College – no degree">Some college</option>
               <option value="Trade/technical/vocational training">
                 Trade/technical/vocational training
               </option>
@@ -198,7 +198,7 @@
           <span class="error">{{ highest_schoolErr }}</span>
         </div>
           <div class="input-wrap">
-          <label class="form-det" for="">Field of study, if any (e.g. BSc Nursing, or trade certificate in refrigeration mechanics) </label>
+          <label class="form-det" for="">Field of study, if any (e.g. Nursing, Education or Cosmetology, etc.) </label>
           <br />
 
           <div class="input">
