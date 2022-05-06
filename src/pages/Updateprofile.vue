@@ -144,7 +144,7 @@
               <option value="25 - 34">25 - 34</option>
               <option value="35 - 44">35 - 44</option>
               <option value="45 - above">45 - above</option>
-              <option value="prefer not to say">Prefer not to say</option>
+            
             </select>
           </div>
           <span class="error">{{ age_groupErr }}</span>
@@ -326,7 +326,7 @@
                 Friend/Family/Word of Mouth
               </option>
               <option value="News Outlet">News Outlet</option>
-              <option value="Others">Others</option>
+              <option value="Others">Other</option>
             </select>
           </div>
           <span class="error">{{ referralErr }}</span>
