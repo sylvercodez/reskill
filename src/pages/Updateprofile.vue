@@ -4,9 +4,10 @@
      <div class="eight q-my-lg">
       <h4 class="header-text">Enroll Now</h4>
     </div>
-    <div class="error" v-if="inputErr">
-      {{ inputErr }}
-    </div>
+    <h1>{{ can_work_in_usa }}</h1>
+      <div class="error" v-if="inputErr">
+        {{ inputErr }}
+      </div>
     <form @submit.prevent="submit" class="form-box">
 
       <div class="input-wrap">
@@ -247,7 +248,7 @@
                 Full-Stack Web Development
               </option>
               <option value="UI/UX Product Design">UI/UX Product Design</option>
-              <option value="Undecided “Learner Category">
+              <option value="I haven't decided yet “Learner Category">
                 I haven't decided yet “Learner Category”?
               </option>
             </select>
@@ -639,33 +640,42 @@ export default {
       };
       console.log(formData);
 
-      axios
-        .put(
-          `https://linkedin-signin-prototype.herokuapp.com/api/users/${this.form.email}`,
-          formData
-        )
-        .then((resp) => {
-          console.log(resp);
-          this.$q.notify({
-            message: "You have enrolled successfully",
-            color: "primary",
-            position: "top",
-          });
-          this.$router.replace("/");
-        })
-        .catch(({ response }) => {
-          console.log(response);
-          this.inputErr = response.data.error;
-          setTimeout(() => {
-            this.inputErr = "";
-          }, 7000);
-
-          this.$q.notify({
-            message: response.data.error,
-            color: "secondary",
-            position: "top",
-          });
+           if (this.can_work_in_usa === "No") {
+        console.log("You must be eligible to work in the US");
+        this.$q.notify({
+          message: "You must be eligible to work in the US",
+          color: "primary",
+          position: "top",
         });
+        return;
+      } else {
+        axios
+          .put(
+            `https://linkedin-signin-prototype.herokuapp.com/api/users/${this.form.email}`,
+            formData
+          )
+          .then((resp) => {
+            console.log(resp);
+            this.$q.notify({
+              message: "You have enrolled successfully",
+              color: "primary",
+              position: "top",
+            });
+            this.$router.replace("/");
+          })
+          .catch(({ response }) => {
+            console.log(response);
+            this.inputErr = response.data.error;
+            setTimeout(() => {
+              this.inputErr = "";
+            }, 7000);
+            this.$q.notify({
+              message: response.data.error,
+              color: "secondary",
+              position: "top",
+            });
+          });
+      }
     },
   },
 };
