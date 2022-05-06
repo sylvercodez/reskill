@@ -734,8 +734,7 @@ font-weight: 300;
 font-size: 18px;
 line-height: 34px;
 /* identical to box height, or 170% */
-
-display: flex;
+margin-top: 10px;
 align-items: center;
 letter-spacing: 0.3px;
 
