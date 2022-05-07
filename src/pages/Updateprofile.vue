@@ -11,35 +11,21 @@
       </div>
       <form @submit.prevent="submit" class="form-box">
         <div class="input-wrap">
-          <label class="form-det" for="">First Name</label> <br />
+          <label class="form-det" for="">Full Name</label> <br />
 
           <div class="input">
             <i class="ri-user-fill q-mr-md icon-enroll"></i>
 
             <input
               disabled
-              name="first_name"
+              name="name"
               type="text"
-              v-model="form.first_name"
+              v-model="form.name"
               placeholder="Ademola"
             />
           </div>
         </div>
-        <div class="input-wrap">
-          <label class="form-det" for="">Last Name</label> <br />
-
-          <div class="input">
-            <i class="ri-user-fill q-mr-md icon-enroll"></i>
-
-            <input
-              disabled
-              name="last_name"
-              type="text"
-              v-model="form.last_name"
-              placeholder="Ademola"
-            />
-          </div>
-        </div>
+       
         <div class="input-wrap">
           <label class="form-det" for="">Email</label> <br />
 
@@ -155,7 +141,7 @@
                 <option value="25 - 34">25 - 34</option>
                 <option value="35 - 44">35 - 44</option>
                 <option value="45 - above">45 - above</option>
-                <option value="prefer not to say">Prefer not to say</option>
+              
               </select>
             </div>
             <span class="error">{{ age_groupErr }}</span>
@@ -194,7 +180,7 @@
             <select name="highest_school" v-model="highest_school" id="">
               <option value="No diploma">No diploma</option>
               <option value="High school ">High school</option>
-              <option value="College – no degree">College – no degree</option>
+              <option value="College">Some College </option>
               <option value="Trade/technical/vocational training">
                 Trade/technical/vocational training
               </option>
@@ -214,8 +200,7 @@
         </div>
         <div class="input-wrap">
           <label class="form-det" for=""
-            >Field of study, if any (e.g. BSc Nursing, or trade certificate in
-            refrigeration mechanics)
+            >Field of study, if any (e.g. Nursing, Education or Cosmetology, etc.)
           </label>
           <br />
 
@@ -262,7 +247,7 @@
                 Full-Stack Web Development
               </option>
               <option value="UI/UX Product Design">UI/UX Product Design</option>
-              <option value="Undecided “Learner Category">
+              <option value=" I haven't decided yet “Learner Category">
                 I haven't decided yet “Learner Category”?
               </option>
             </select>
@@ -333,7 +318,7 @@
                 Friend/Family/Word of Mouth
               </option>
               <option value="News Outlet">News Outlet</option>
-              <option value="Others">Others</option>
+              <option value="Others">Other</option>
             </select>
           </div>
           <span class="error">{{ referralErr }}</span>
@@ -599,8 +584,8 @@ export default {
         learning_track: this.userData("learning_track"),
         linkedin_url: this.userData("linkedin_url"),
         location: this.userData("location"),
-        first_name: this.userData("first_name"),
-        last_name: this.userData("last_name"),
+        name: this.userData("name"),
+     
         phone: this.userData("phone"),
         referral: this.userData("referral"),
         representation: this.userData("representation"),
@@ -615,8 +600,8 @@ export default {
     },
     submit() {
       const timezone = this.timezone;
-      const first_name = this.first_name;
-      const last_name = this.form.last_name;
+      
+      const name = this.form.name;
       const email = this.form.email;
       const linkedin_url = this.form.linkedin_url;
       const learning_track = this.learning_track;
@@ -636,8 +621,8 @@ export default {
 
       const formData = {
         timezone,
-        first_name,
-        last_name,
+        name,
+    
         email,
         linkedin_url,
         learning_track,
@@ -773,7 +758,7 @@ input::placeholder {
   line-height: 34px;
   /* identical to box height, or 170% */
 
-  display: flex;
+margin-top:15px;
   align-items: center;
   letter-spacing: 0.3px;
 
