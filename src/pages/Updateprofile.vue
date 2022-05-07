@@ -1,172 +1,186 @@
 <template>
-<div class="box-par">
-  <div class="wrapper container q-pt-xl">
-     <div class="eight q-my-lg">
-      <h4 class="header-text">Enroll Now</h4>
-    </div>
-   
+  <div class="box-par">
+    <div class="wrapper container q-pt-xl">
+      <div class="eight q-my-lg">
+        <h4 class="header-text">Enroll Now</h4>
+      </div>
+
+      <h1>{{ acknowledge }}</h1>
       <div class="error" v-if="inputErr">
         {{ inputErr }}
       </div>
-    <form @submit.prevent="submit" class="form-box">
-
-      <div class="input-wrap">
-        <label class="form-det" for="">Full Name</label> <br />
-
-        <div class="input">
-          <i class="ri-user-fill q-mr-md icon-enroll"></i>
-
-          <input
-            disabled
-            name="name"
-            type="text"
-            v-model="form.name"
-            placeholder="Ademola"
-          />
-        </div>
-      </div>
-      
-      <div class="input-wrap">
-        <label class="form-det" for="">Email</label> <br />
-
-        <div class="input">
-          <i class="ri-mail-line q-mr-md icon-enroll"></i>
-
-          <input
-            disabled
-            type="email"
-            name="email"
-            v-model="form.email"
-            placeholder="Enter your email"
-          />
-        </div>
-        <span class="error">{{ emailError }}</span>
-      </div>
-
-      <div class="input-wrap">
-        <label class="form-det" for="">Linkedin Profile URL</label> <br />
-
-        <div class="input">
-          <i class="ri-shield-user-fill q-mr-md icon-enroll"></i>
-
-          <input
-            disabled
-            type="text"
-            name="linkedin_url"
-            id="te"
-            v-model="form.linkedin_url"
-          />
-        </div>
-      </div>
-
-
-      <div class="two">
+      <form @submit.prevent="submit" class="form-box">
         <div class="input-wrap">
-          <label class="form-det" for=""
-            >City, State of Residence (e.g. Seattle, WA)
-          </label>
-          <br />
+          <label class="form-det" for="">First Name</label> <br />
 
           <div class="input">
-            <i class="ri-time-fill q-mr-md icon-enroll"></i>
+            <i class="ri-user-fill q-mr-md icon-enroll"></i>
 
             <input
+              disabled
+              name="first_name"
               type="text"
-              name="timezone"
-              v-model="timezone"
-              placeholder=""
+              v-model="form.first_name"
+              placeholder="Ademola"
             />
           </div>
-          <span class="error">{{ timezoneErr }}</span>
         </div>
         <div class="input-wrap">
-          <label class="form-det" for="">Phone Number</label> <br />
+          <label class="form-det" for="">Last Name</label> <br />
 
           <div class="input">
-            <i class="ri-phone-fill q-mr-md icon-enroll"></i>
+            <i class="ri-user-fill q-mr-md icon-enroll"></i>
 
             <input
+              disabled
+              name="last_name"
               type="text"
-              name="phone"
-              v-model="phone"
-              placeholder=""
+              v-model="form.last_name"
+              placeholder="Ademola"
             />
           </div>
-          <span class="error">{{ phoneErr }}</span>
-        </div>
-      </div>
-
-      <div class="two">
-        <div class="input-wrap">
-          <label class="form-det" for="">Minority Representation: I identify as</label>
-          <br />
-
-          <div class="input">
-            <i class="ri-apps-fill q-mr-md icon-enroll"></i>
-
-            <select name="representation" v-model="representation" id="">
-              <option value="native american">Native American</option>
-              <option value="alaska native">Alaska Native</option>
-              <option value="black">Black</option>
-              <option value="hispanic">Hispanic</option>
-              <option value="pacific islander">Pacific Islander</option>
-              <option value="southeast asian">Southeast Asian</option>
-            </select>
-          </div>
-          <span class="error">{{ representationErr }}</span>
         </div>
         <div class="input-wrap">
-          <label class="form-det" for="">Gender</label>
-          <br />
+          <label class="form-det" for="">Email</label> <br />
 
           <div class="input">
-            <i class="ri-group-line q-mr-md icon-enroll"></i>
+            <i class="ri-mail-line q-mr-md icon-enroll"></i>
 
-            <select name="gender" v-model="gender" id="">
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="non binary">Non Binary</option>
-              <option value="prefer not to say">Prefer not to say</option>
-            </select>
+            <input
+              disabled
+              type="email"
+              name="email"
+              v-model="form.email"
+              placeholder="Enter your email"
+            />
           </div>
-          <span class="error">{{ genderErr }}</span>
+          <span class="error">{{ emailError }}</span>
         </div>
-      </div>
-      <div class="two">
+
         <div class="input-wrap">
-          <label class="form-det" for="">Age Group</label>
-          <br />
+          <label class="form-det" for="">Linkedin Profile URL</label> <br />
 
           <div class="input">
-            <i class="ri-calendar-fill q-mr-md icon-enroll"></i>
+            <i class="ri-shield-user-fill q-mr-md icon-enroll"></i>
 
-            <select name="age_group" v-model="age_group" id="">
-              <option value="18 - 24">18 - 24</option>
-              <option value="25 - 34">25 - 34</option>
-              <option value="35 - 44">35 - 44</option>
-              <option value="45 - above">45 - above</option>
-            
-            </select>
+            <input
+              disabled
+              type="text"
+              name="linkedin_url"
+              id="te"
+              v-model="form.linkedin_url"
+            />
           </div>
-          <span class="error">{{ age_groupErr }}</span>
         </div>
-        <div class="input-wrap">
-          <label class="form-det" for="">Current Employment Status</label>
-          <br />
 
-          <div class="input">
-            <i class="ri-star-fill q-mr-md icon-enroll"></i>
+        <div class="two">
+          <div class="input-wrap">
+            <label class="form-det" for=""
+              >City, State of Residence (e.g. Seattle, WA)
+            </label>
+            <br />
 
-            <select name="employment_status" v-model="employment_status" id="">
-              <option value="Employed full-time">Employed full-time</option>
-              <option value="Employed part-time">Employed part-time</option>
-              <option value="Self-employed ">Self-employed</option>
-              <option value="Unemployed">Unemployed</option>
-            </select>
+            <div class="input">
+              <i class="ri-time-fill q-mr-md icon-enroll"></i>
+
+              <input
+                type="text"
+                name="timezone"
+                v-model="timezone"
+                placeholder=""
+              />
+            </div>
+            <span class="error">{{ timezoneErr }}</span>
           </div>
-          <span class="error"> {{ employment_statusErr }}</span>
+          <div class="input-wrap">
+            <label class="form-det" for="">Phone Number</label> <br />
+
+            <div class="input">
+              <i class="ri-phone-fill q-mr-md icon-enroll"></i>
+
+              <input type="text" name="phone" v-model="phone" placeholder="" />
+            </div>
+            <span class="error">{{ phoneErr }}</span>
+          </div>
         </div>
-      </div>
+
+        <div class="two">
+          <div class="input-wrap">
+            <label class="form-det" for=""
+              >Minority Representation: I identify as</label
+            >
+            <br />
+
+            <div class="input">
+              <i class="ri-apps-fill q-mr-md icon-enroll"></i>
+
+              <select name="representation" v-model="representation" id="">
+                <option value="native american">Native American</option>
+                <option value="alaska native">Alaska Native</option>
+                <option value="black">Black</option>
+                <option value="hispanic">Hispanic</option>
+                <option value="pacific islander">Pacific Islander</option>
+                <option value="southeast asian">Southeast Asian</option>
+              </select>
+            </div>
+            <span class="error">{{ representationErr }}</span>
+          </div>
+          <div class="input-wrap">
+            <label class="form-det" for="">Gender</label>
+            <br />
+
+            <div class="input">
+              <i class="ri-group-line q-mr-md icon-enroll"></i>
+
+              <select name="gender" v-model="gender" id="">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="non binary">Non Binary</option>
+                <option value="prefer not to say">Prefer not to say</option>
+              </select>
+            </div>
+            <span class="error">{{ genderErr }}</span>
+          </div>
+        </div>
+        <div class="two">
+          <div class="input-wrap">
+            <label class="form-det" for="">Age Group</label>
+            <br />
+
+            <div class="input">
+              <i class="ri-calendar-fill q-mr-md icon-enroll"></i>
+
+              <select name="age_group" v-model="age_group" id="">
+                <option value="18 - 24">18 - 24</option>
+                <option value="25 - 34">25 - 34</option>
+                <option value="35 - 44">35 - 44</option>
+                <option value="45 - above">45 - above</option>
+                <option value="prefer not to say">Prefer not to say</option>
+              </select>
+            </div>
+            <span class="error">{{ age_groupErr }}</span>
+          </div>
+          <div class="input-wrap">
+            <label class="form-det" for="">Current Employment Status</label>
+            <br />
+
+            <div class="input">
+              <i class="ri-star-fill q-mr-md icon-enroll"></i>
+
+              <select
+                name="employment_status"
+                v-model="employment_status"
+                id=""
+              >
+                <option value="Employed full-time">Employed full-time</option>
+                <option value="Employed part-time">Employed part-time</option>
+                <option value="Self-employed ">Self-employed</option>
+                <option value="Unemployed">Unemployed</option>
+              </select>
+            </div>
+            <span class="error"> {{ employment_statusErr }}</span>
+          </div>
+        </div>
 
         <div class="input-wrap">
           <label class="form-det" for=""
@@ -180,7 +194,7 @@
             <select name="highest_school" v-model="highest_school" id="">
               <option value="No diploma">No diploma</option>
               <option value="High school ">High school</option>
-              <option value="College – no degree">Some college</option>
+              <option value="College – no degree">College – no degree</option>
               <option value="Trade/technical/vocational training">
                 Trade/technical/vocational training
               </option>
@@ -198,8 +212,11 @@
           </div>
           <span class="error">{{ highest_schoolErr }}</span>
         </div>
-          <div class="input-wrap">
-          <label class="form-det" for="">Field of study, if any (e.g. Nursing, Education or Cosmetology, etc.) </label>
+        <div class="input-wrap">
+          <label class="form-det" for=""
+            >Field of study, if any (e.g. BSc Nursing, or trade certificate in
+            refrigeration mechanics)
+          </label>
           <br />
 
           <div class="input">
@@ -207,17 +224,14 @@
             <input
               type="text"
               name="list_amjor"
-              v-model="list_amjor"
+              v-model="field__of__study"
               placeholder=""
             />
           </div>
-          <span class="error">{{ listmajorErr }}</span>
+          <span class="error">{{ field__of__studyErr }}</span>
+        </div>
 
-
-      </div>
-
-
-  <div class="input-wrap">
+        <div class="input-wrap">
           <label class="form-det" for=""
             >Are you authorized to legally work in the U.S.?
           </label>
@@ -248,7 +262,7 @@
                 Full-Stack Web Development
               </option>
               <option value="UI/UX Product Design">UI/UX Product Design</option>
-              <option value="I haven't decided yet “Learner Category">
+              <option value="Undecided “Learner Category">
                 I haven't decided yet “Learner Category”?
               </option>
             </select>
@@ -265,28 +279,23 @@
             <i class="ri-inbox-fill q-mr-md icon-enroll"></i>
 
             <select name="tech_experience" v-model="tech_experience" id="">
-              <option value="No experience">
-              No experience
-              </option>
+              <option value="No experience">No experience</option>
               <option value="Some experience/novice">
-               Some experience/novice/self-learner
-
+                Some experience/novice/self-learner
               </option>
               <option value=" Experienced/advanced beginner">
-               Experienced/advanced beginner
+                Experienced/advanced beginner
               </option>
             </select>
           </div>
           <span class="error">{{ tech_experienceErr }}</span>
         </div>
 
-
         <div class="input-wrap">
           <label class="form-det" for=""
             >How many hours per week are you able to commit to this program
             (dedicated to learning, doing assignments, and peer/instructor
-            interaction)
-            over the seven months you are enrolled?
+            interaction) over the seven months you are enrolled?
           </label>
           <br />
 
@@ -308,11 +317,8 @@
           <span class="error">{{ hours_per_weekErr }}</span>
         </div>
 
-
         <div class="input-wrap">
-          <label class="form-det" for="">
-            How did you hear about us?
-          </label>
+          <label class="form-det" for=""> How did you hear about us? </label>
           <br />
 
           <div class="input">
@@ -327,20 +333,30 @@
                 Friend/Family/Word of Mouth
               </option>
               <option value="News Outlet">News Outlet</option>
-              <option value="Others">Other</option>
+              <option value="Others">Others</option>
             </select>
           </div>
           <span class="error">{{ referralErr }}</span>
         </div>
-<div style="display: flex; align-items:center; margin-top:12px;">
-<input  v-model="acknowledge" type="checkbox" style="margin-right: 17px;"> <label class="form-det" for="">By submitting this Enrollment Application, you acknowledge that you are currently 18 years of age and that you agree to our <a href="https://reskillamericans.org/terms-of-service" target="_blank">Terms of Service</a> and our <a href="https://reskill-learning.web.app/privacy" target="_blank">Privacy Policy</a> </label> </div>
-      <div class="button q-py-md q-mt-sm text-center">
-        <!-- <button class="btn">Register</button> -->
-        <q-btn type="submit" class="btn buttonss ">Enroll</q-btn>
-      </div>
-    </form>
+        <div style="display: flex; align-items: center; margin-top: 12px">
+          <input
+            v-model="acknowledge"
+            type="checkbox"
+            style="margin-right: 17px"
+          />
+          <label class="form-det" for=""
+            >By submitting this Enrollment Application, you acknowledge that you
+            are currently 18 years of age and that you agree to our Terms of
+            Service and our Privacy Policy
+          </label>
+        </div>
+        <div class="button q-py-md q-mt-sm text-center">
+          <!-- <button class="btn">Register</button> -->
+          <q-btn type="submit" class="btn buttonss">Enroll</q-btn>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -349,7 +365,7 @@ import { onBeforeUnmount } from "vue";
 import { QSpinnerGears } from "quasar";
 import { useField, useForm } from "vee-validate";
 import axios from "axios";
-
+import { ref } from "vue";
 export default {
   setup() {
     const $q = useQuasar();
@@ -434,7 +450,7 @@ export default {
         // validate name value and return messages...
       },
 
-      list_amjor(value) {
+      field__of__study(value) {
         if (!value) {
           return "this field is required";
         }
@@ -511,8 +527,8 @@ export default {
       useField("employment_status");
     const { value: highest_school, errorMessage: highest_schoolErr } =
       useField("highest_school");
-    const { value: list_major, errorMessage: listmajorErr } =
-      useField("list_amjor");
+    const { value: field__of__study, errorMessage: field__of__studyErr } =
+      useField("field__of__study");
 
     const { value: hours_per_week, errorMessage: hours_per_weekErr } =
       useField("hours_per_week");
@@ -527,7 +543,7 @@ export default {
     // No need to define rules for fields
 
     return {
-     acknowledge: ref(false),
+      acknowledge: ref(false),
       timezone,
       timezoneErr,
       phone,
@@ -538,15 +554,14 @@ export default {
       age_groupErr,
       can_work_in_usa,
       can_work_in_usaErr,
-
       employment_status,
       employment_statusErr,
       gender,
       genderErr,
       highest_school,
       highest_schoolErr,
-      list_major,
-      listmajorErr,
+      field__of__study,
+      field__of__studyErr,
       hours_per_week,
       hours_per_weekErr,
       learning_track,
@@ -584,8 +599,8 @@ export default {
         learning_track: this.userData("learning_track"),
         linkedin_url: this.userData("linkedin_url"),
         location: this.userData("location"),
-      
-        name: this.userData("name"),
+        first_name: this.userData("first_name"),
+        last_name: this.userData("last_name"),
         phone: this.userData("phone"),
         referral: this.userData("referral"),
         representation: this.userData("representation"),
@@ -600,8 +615,8 @@ export default {
     },
     submit() {
       const timezone = this.timezone;
-   
-      const name = this.form.name;
+      const first_name = this.first_name;
+      const last_name = this.form.last_name;
       const email = this.form.email;
       const linkedin_url = this.form.linkedin_url;
       const learning_track = this.learning_track;
@@ -613,7 +628,7 @@ export default {
       const hours_per_week = this.hours_per_week;
       const age_group = this.age_group;
       const highest_school = this.highest_school;
-      const list_major = this.list_major;
+      const field__of__study = this.field__of__study;
 
       const can_work_in_usa = this.can_work_in_usa;
       const gender = this.gender;
@@ -621,8 +636,8 @@ export default {
 
       const formData = {
         timezone,
-      
-        name,
+        first_name,
+        last_name,
         email,
         linkedin_url,
         learning_track,
@@ -633,7 +648,7 @@ export default {
         hours_per_week,
         age_group,
         highest_school,
-        list_major,
+        field__of__study,
         can_work_in_usa,
         gender,
         phone,
@@ -641,7 +656,7 @@ export default {
       };
       console.log(formData);
 
-           if (this.can_work_in_usa === "No") {
+      if (this.can_work_in_usa === "No") {
         console.log("You must be eligible to work in the US");
         this.$q.notify({
           message: "You must be eligible to work in the US",
@@ -681,6 +696,7 @@ export default {
             setTimeout(() => {
               this.inputErr = "";
             }, 7000);
+
             this.$q.notify({
               message: response.data.error,
               color: "secondary",
@@ -694,7 +710,7 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
 p {
   margin-bottom: 4px;
 }
@@ -749,18 +765,19 @@ input::placeholder {
   gap: 2rem;
   align-items: center;
 }
-.form-det{
-  font-family: 'Open Sans';
-font-style: normal;
-font-weight: 300;
-font-size: 18px;
-line-height: 34px;
-/* identical to box height, or 170% */
-margin-top: 10px;
-align-items: center;
-letter-spacing: 0.3px;
+.form-det {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 34px;
+  /* identical to box height, or 170% */
 
-color: #000;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.3px;
+
+  color: #000;
 }
 .three {
   display: grid;
@@ -768,10 +785,10 @@ color: #000;
   gap: 2rem;
   align-items: center;
 }
-.icon-enroll{
+.icon-enroll {
   font-size: 21px;
   padding-left: 10px;
-color: #746e6e;
+  color: #746e6e;
 }
 .input-wrap {
   margin: 2rem 0;
@@ -828,7 +845,6 @@ select:focus {
   background: #f2594b;
 
   color: #fff;
-
 
   width: 100%;
 }
@@ -916,29 +932,29 @@ select:focus {
   display: flex;
   justify-content: space-between;
 }
-.form-box{
+.form-box {
   background-color: #fff;
   border-radius: 17px;
   padding: 20px;
   padding-left: 40px;
   padding-right: 40px;
 }
-.header-text{
-  font-family: 'Open Sans';
-font-style: normal;
-font-weight: 700;
-font-size: 53px;
-line-height: 122%;
-/* identical to box height, or 65px */
-text-align: center;
-letter-spacing: 0.3px;
+.header-text {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 53px;
+  line-height: 122%;
+  /* identical to box height, or 65px */
+  text-align: center;
+  letter-spacing: 0.3px;
 
-color: #121928;
+  color: #121928;
 }
 .q-tab {
   width: 50% !important;
 }
-.box-par{
+.box-par {
   background-color: #ebf5fb;
 }
 @media (max-width: 500px) {
