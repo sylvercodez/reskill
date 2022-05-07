@@ -4,7 +4,7 @@
      <div class="eight q-my-lg">
       <h4 class="header-text">Enroll Now</h4>
     </div>
-    <h1>{{ can_work_in_usa }}</h1>
+    <h1>{{ acknowledge }}</h1>
       <div class="error" v-if="inputErr">
         {{ inputErr }}
       </div>
@@ -333,7 +333,7 @@
           <span class="error">{{ referralErr }}</span>
         </div>
 <div style="display: flex; align-items:center; margin-top:12px;">
-<input type="checkbox" style="margin-right: 17px;"> <label class="form-det" for="">By submitting this Enrollment Application, you acknowledge that you are currently 18 years of age and that you agree to our <a href="https://reskillamericans.org/terms-of-service" target="_blank">Terms of Service</a> and our <a href="https://reskill-learning.web.app/privacy" target="_blank">Privacy Policy</a> </label> </div>
+<input  v-model="acknowledge" type="checkbox" style="margin-right: 17px;"> <label class="form-det" for="">By submitting this Enrollment Application, you acknowledge that you are currently 18 years of age and that you agree to our <a href="https://reskillamericans.org/terms-of-service" target="_blank">Terms of Service</a> and our <a href="https://reskill-learning.web.app/privacy" target="_blank">Privacy Policy</a> </label> </div>
       <div class="button q-py-md q-mt-sm text-center">
         <!-- <button class="btn">Register</button> -->
         <q-btn type="submit" class="btn buttonss ">Enroll</q-btn>
@@ -527,6 +527,7 @@ export default {
     // No need to define rules for fields
 
     return {
+     acknowledge: ref(false),
       timezone,
       timezoneErr,
       phone,
@@ -644,6 +645,17 @@ export default {
         console.log("You must be eligible to work in the US");
         this.$q.notify({
           message: "You must be eligible to work in the US",
+          color: "primary",
+          position: "top",
+        });
+        return;
+      } else if (this.acknowledge === false) {
+        console.log(
+          "You must agree with the Terms of Services and Privacy conditions"
+        );
+        this.$q.notify({
+          message:
+            "You must agree with our Terms of Services and Privacy conditions",
           color: "primary",
           position: "top",
         });
