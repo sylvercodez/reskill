@@ -5,7 +5,7 @@
         <h4 class="header-text">Enroll Now</h4>
       </div>
 
-      <h1>{{ acknowledge }}</h1>
+   
       <div class="error" v-if="inputErr">
         {{ inputErr }}
       </div>
