@@ -331,8 +331,8 @@
           />
           <label class="form-det" for=""
             >By submitting this Enrollment Application, you acknowledge that you
-            are currently 18 years of age and that you agree to our Terms of
-            Service and our Privacy Policy
+            are currently 18 years of age and that you agree to our <a href="https://reskillamericans.org/terms-of-service" target="_blank" >Terms of
+            Service</a> and our <a href="https://reskillamericans.org/privacy" target="_blank"> Privacy Policy</a>
           </label>
         </div>
         <div class="button q-py-md q-mt-sm text-center">
