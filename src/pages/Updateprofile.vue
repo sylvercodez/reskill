@@ -5,7 +5,7 @@
         <h4 class="header-text">Enroll Now</h4>
       </div>
 
-   
+
       <div class="error" v-if="inputErr">
         {{ inputErr }}
       </div>
@@ -25,7 +25,7 @@
             />
           </div>
         </div>
-       
+
         <div class="input-wrap">
           <label class="form-det" for="">Email</label> <br />
 
@@ -141,7 +141,7 @@
                 <option value="25 - 34">25 - 34</option>
                 <option value="35 - 44">35 - 44</option>
                 <option value="45 - above">45 - above</option>
-              
+
               </select>
             </div>
             <span class="error">{{ age_groupErr }}</span>
@@ -187,11 +187,11 @@
               <option value="Associate Degree">Associate Degree</option>
 
               <option value="Bachelor’s Degree">
-                Bachelor’s Degree (list major)
+                Bachelor’s Degree
               </option>
 
               <option value="Master’s Degree">
-                Master’s Degree (list major)
+                Master’s Degree
               </option>
               <option value="Post-graduate study">Post-graduate study</option>
             </select>
@@ -247,8 +247,8 @@
                 Full-Stack Web Development
               </option>
               <option value="UI/UX Product Design">UI/UX Product Design</option>
-              <option value=" I haven't decided yet “Learner Category">
-                I haven't decided yet “Learner Category”?
+              <option value=" I haven't decided yet">
+                I haven't decided yet
               </option>
             </select>
           </div>
@@ -319,9 +319,24 @@
               </option>
               <option value="News Outlet">News Outlet</option>
               <option value="Others">Other</option>
+
             </select>
+
           </div>
           <span class="error">{{ referralErr }}</span>
+        </div>
+          <div v-if="others" class="input-wrap">
+          <label class="form-det" for="">Where did you hear about us </label>
+
+          <div class="input">
+            <input
+              type="text"
+              name="others"
+              v-model="othersInfo"
+              placeholder=""
+            />
+          </div>
+          <!-- <span class="error">{{ field__of__studyErr }}</span> -->
         </div>
         <div style="display: flex; align-items: center; margin-top: 12px">
           <input
@@ -331,12 +346,12 @@
           />
           <label class="form-det" for=""
             >By submitting this Enrollment Application, you acknowledge that you
-            are currently 18 years of age and that you agree to our <a href="https://reskillamericans.org/terms-of-service" target="_blank" >Terms of
-            Service</a> and our <a href="https://reskillamericans.org/privacy" target="_blank"> Privacy Policy</a>
+            are currently 18 years of age and that you agree to our <a href="https://reskillamericans.org/terms-of-service" style="text-decoration:underline; width:500;" target="_blank" >Terms of
+            Service</a> and our <a href="https://reskillamericans.org/privacy" style="text-decoration:underline; width:500;"  target="_blank"> Privacy Policy</a>
           </label>
         </div>
         <div class="button q-py-md q-mt-sm text-center">
-          <!-- <button class="btn">Register</button> -->
+          <!-- <button class="btn">Register</button>jgc -->
           <q-btn type="submit" class="btn buttonss">Enroll</q-btn>
         </div>
       </form>
@@ -362,6 +377,17 @@ export default {
         $q.loading.hide();
       }
     });
+    const others ={
+       referral(value){
+      if(value == "Others"){
+        return true
+      }
+      else{
+        return false
+      }
+      }
+    }
+
 
     const simpleSchema = {
       timezone(value) {
@@ -492,6 +518,7 @@ export default {
         // validate name value and return messages...
       },
     };
+
     // Create a form context with the validation schema
     useForm({
       validationSchema: simpleSchema,
@@ -572,6 +599,8 @@ export default {
   },
   data() {
     return {
+         others: false,
+      othersInfo: "",
       inputErr: "",
       form: {
         age_group: this.userData("age_group"),
@@ -585,7 +614,7 @@ export default {
         linkedin_url: this.userData("linkedin_url"),
         location: this.userData("location"),
         name: this.userData("name"),
-     
+
         phone: this.userData("phone"),
         referral: this.userData("referral"),
         representation: this.userData("representation"),
@@ -594,13 +623,22 @@ export default {
       },
     };
   },
+    watch: {
+    referral: function () {
+      if (this.referral === "Others") {
+        this.others = true;
+      } else {
+        console.log(this.referral);
+      }
+    },
+  },
   methods: {
     userData(key) {
       return JSON.parse(localStorage.getItem("userDetails"))[key];
     },
     submit() {
       const timezone = this.timezone;
-      
+
       const name = this.form.name;
       const email = this.form.email;
       const linkedin_url = this.form.linkedin_url;
@@ -618,11 +656,11 @@ export default {
       const can_work_in_usa = this.can_work_in_usa;
       const gender = this.gender;
       const phone = this.phone;
-
+ const others = this.othersInfo;
       const formData = {
         timezone,
         name,
-    
+
         email,
         linkedin_url,
         learning_track,
@@ -637,6 +675,7 @@ export default {
         can_work_in_usa,
         gender,
         phone,
+        others,
         tech_experience,
       };
       console.log(formData);
