@@ -59,6 +59,22 @@
               />
             </div>
           </div>
+          <div class="input-wrap">
+            <label class="form-det" for="">Profile Image</label> <br />
+
+            <div class="input">
+              <i class="ri-image-fill q-mr-md icon-enroll"></i>
+
+              <q-file
+                style="width: 100%"
+                dense
+                name="image"
+                accept=".jpg,.png,.svg"
+                v-model="inputImage"
+                @update:model-value="setFile"
+              />
+            </div>
+          </div>
 
           <div class="input-wrap">
             <label class="form-det" for="">Email</label> <br />
@@ -812,6 +828,7 @@ export default {
       figmaInfo: "",
 
       inputErr: "",
+      inputImage: null,
       form: {
         age_group: this.userData("age_group"),
         can_work_in_usa: this.userData("can_work_in_usa"),
@@ -863,6 +880,9 @@ export default {
     },
   },
   methods: {
+    setFile(prop) {
+      this.inputImage = prop;
+    },
     userData(key) {
       return JSON.parse(localStorage.getItem("userDetails"))[key];
     },

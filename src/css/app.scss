@@ -1,1 +1,5 @@
 // app global css in SCSS form
+.input .q-field--standard .q-field__control:before {
+  border-bottom: none;
+  transition: border-color 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+}
