@@ -9,39 +9,7 @@
         {{ inputErr }}
       </div>
       <form @submit.prevent="submit" class="form-box">
-        <div class="imgg">
-          <div class="helper"></div>
-
-          <div
-            :class="!image ? 'drop display-inline align-center' : 'no_border'"
-            @dragover.prevent
-            @drop="onDrop"
-          >
-            <div class="helper"></div>
-            <q-icon
-              color="grey"
-              v-if="!image"
-              size="90px"
-              name="backup"
-            ></q-icon>
-
-            <label v-if="!image" class="display-inline">
-              Drag your profile image here or <br />
-              <span class="browse">Browse</span>
-
-              <input type="file" name="image" @change="onChange" />
-            </label>
-
-            <div
-              class="hidden display-inline align-center"
-              v-else
-              v-bind:class="{ image: true }"
-            >
-              <img :src="image" alt="" class="img" />
-
-              <button class="btnn" @click="removeFile">Remove</button>
-            </div>
-          </div>
+        
         </div>
         <div class="form-box">
           <div class="input-wrap">
@@ -59,22 +27,7 @@
               />
             </div>
           </div>
-          <div class="input-wrap">
-            <label class="form-det" for="">Profile Image</label> <br />
-
-            <div class="input">
-              <i class="ri-image-fill q-mr-md icon-enroll"></i>
-
-              <q-file
-                style="width: 100%"
-                dense
-                name="image"
-                accept=".jpg,.png,.svg"
-                v-model="inputImage"
-                @update:model-value="setFile"
-              />
-            </div>
-          </div>
+          
 
           <div class="input-wrap">
             <label class="form-det" for="">Email</label> <br />
@@ -91,7 +44,7 @@
               />
             </div>
           </div>
-
+ <div class="two">
           <div class="input-wrap">
             <label class="form-det" for="">Linkedin Profile URL</label> <br />
 
@@ -107,7 +60,23 @@
               />
             </div>
           </div>
+<div class="input-wrap">
+            <label class="form-det" for="">Profile Image</label> <br />
 
+            <div class="input">
+              <i class="ri-image-fill q-mr-md icon-enroll"></i>
+
+              <q-file
+                style="width: 100%"
+                dense
+                name="image"
+                accept=".jpg,.png,.svg"
+                v-model="inputImage"
+                @update:model-value="setFile"
+              />
+            </div>
+          </div>
+          </div>
           <div class="two">
             <div class="input-wrap">
               <label class="form-det" for=""
