@@ -10,7 +10,7 @@
       </div>
       <form @submit.prevent="submit" class="form-box">
         
-        </div>
+        
         <div class="form-box">
           <div class="input-wrap">
             <label class="form-det" for="">Full Name</label> <br />
