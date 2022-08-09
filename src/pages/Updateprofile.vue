@@ -9,8 +9,6 @@
         {{ inputErr }}
       </div>
       <form @submit.prevent="submit" class="form-box">
-        
-        
         <div class="form-box">
           <div class="input-wrap">
             <label class="form-det" for="">Full Name</label> <br />
@@ -27,7 +25,6 @@
               />
             </div>
           </div>
-          
 
           <div class="input-wrap">
             <label class="form-det" for="">Email</label> <br />
@@ -44,38 +41,38 @@
               />
             </div>
           </div>
- <div class="two">
-          <div class="input-wrap">
-            <label class="form-det" for="">Linkedin Profile URL</label> <br />
+          <div class="two">
+            <div class="input-wrap">
+              <label class="form-det" for="">Linkedin Profile URL</label> <br />
 
-            <div class="input">
-              <i class="ri-shield-user-fill q-mr-md icon-enroll"></i>
+              <div class="input">
+                <i class="ri-shield-user-fill q-mr-md icon-enroll"></i>
 
-              <input
-                disabled
-                type="text"
-                name="linkedin_url"
-                id="te"
-                v-model="form.linkedin_url"
-              />
+                <input
+                  disabled
+                  type="text"
+                  name="linkedin_url"
+                  id="te"
+                  v-model="form.linkedin_url"
+                />
+              </div>
             </div>
-          </div>
-<div class="input-wrap">
-            <label class="form-det" for="">Profile Image</label> <br />
+            <div class="input-wrap">
+              <label class="form-det" for="">Profile Image</label> <br />
 
-            <div class="input">
-              <i class="ri-image-fill q-mr-md icon-enroll"></i>
+              <div class="input">
+                <i class="ri-image-fill q-mr-md icon-enroll"></i>
 
-              <q-file
-                style="width: 100%"
-                dense
-                name="image"
-                accept=".jpg,.png,.svg"
-                v-model="inputImage"
-                @update:model-value="setFile"
-              />
+                <q-file
+                  style="width: 100%"
+                  dense
+                  name="photo"
+                  accept=".jpg,.png,.svg,.jpeg"
+                  v-model="inputImage"
+                  @update:model-value="setFile"
+                />
+              </div>
             </div>
-          </div>
           </div>
           <div class="two">
             <div class="input-wrap">
@@ -259,7 +256,7 @@
               <i class="ri-book-fill q-mr-md icon-enroll"></i>
               <input
                 type="text"
-                name="list_amjor"
+                name="field__of__study"
                 v-model="field__of__study"
                 placeholder=""
               />
@@ -512,7 +509,10 @@
           </div>
           <div class="button q-py-md q-mt-sm text-center">
             <!-- <button class="btn">Register</button>jgc -->
-            <q-btn type="submit" class="btn buttonss">Enroll</q-btn>
+
+            <q-btn :loading="loading" type="submit" class="btn buttonss"
+              >Enroll</q-btn
+            >
           </div>
         </div>
       </form>
@@ -764,7 +764,7 @@ export default {
       learning_track,
 
       learning_trackErr,
-      // location,
+      location,
       // locationErr,
       referral,
       gitaccount,
@@ -774,17 +774,6 @@ export default {
       referralErr,
       tech_experience,
       tech_experienceErr,
-
-      showLoading() {
-        $q.loading.show({
-          spinner: QSpinnerFacebook,
-          spinnerColor: "primary",
-          spinnerSize: 140,
-          backgroundColor: "#ca7c06",
-          message: "Signing you up, hold on...",
-          messageColor: "black",
-        });
-      },
     };
   },
   data() {
@@ -795,6 +784,7 @@ export default {
       gitInfo: "",
       figma_yes: false,
       figmaInfo: "",
+      loading: false,
 
       inputErr: "",
       inputImage: null,
@@ -890,50 +880,59 @@ export default {
       const linkedin_url = this.form.linkedin_url;
       const learning_track = this.learning_track;
       const referral = this.referral;
-      // const gitaccount = this.gitaccount;
-      // const figmaaccount = this.figmaaccount;
-
+      const gitaccount = this.gitaccount;
+      const figmaaccount = this.figmaaccount;
+      const photo = this.inputImage;
       const representation = this.representation;
       const employment_status = this.employment_status;
-      // const number = this.number;
+      const git_yes = this.gitInfo;
       const tech_experience = this.tech_experience;
       const hours_per_week = this.hours_per_week;
       const age_group = this.age_group;
       const highest_school = this.highest_school;
       const field__of__study = this.field__of__study;
-
+      const figma_yes = this.figmaInfo;
       const can_work_in_usa = this.can_work_in_usa;
       const gender = this.gender;
       const phone = this.phone;
       const referral_other = this.othersInfo;
-      const formData = {
-        timezone,
-        name,
 
-        email,
-        linkedin_url,
-        learning_track,
-        referral,
-        // gitaccount,
-
-        // figmaaccount,
-
-        representation,
-        employment_status,
-        employment_status,
-        hours_per_week,
-        age_group,
-        highest_school,
-        field__of__study,
-        can_work_in_usa,
-        gender,
-        phone,
-        referral_other,
-        // git_yes,
-        // figma_yes,
-        tech_experience,
-      };
-      console.log(formData);
+      const formDataa = new FormData();
+      formDataa.append("photo", photo);
+      formDataa.append("representation", representation);
+      formDataa.append("name", name);
+      formDataa.append("gender", gender);
+      formDataa.append("phone", phone);
+      formDataa.append("figmaaccount", figmaaccount);
+      formDataa.append("gitaccount", gitaccount);
+      formDataa.append("employment_status", employment_status);
+      formDataa.append("linkedin_url", linkedin_url);
+      formDataa.append("timezone", timezone);
+      formDataa.append("email", email);
+      formDataa.append("referral", referral);
+      formDataa.append("learning_track", learning_track);
+      formDataa.append("highest_school", highest_school);
+      formDataa.append("can_work_in_usa", can_work_in_usa);
+      formDataa.append("field__of__study", field__of__study);
+      formDataa.append("hours_per_week", hours_per_week);
+      formDataa.append("tech_experience", tech_experience);
+      formDataa.append("age_group", age_group);
+      formDataa.append("_method", "PUT");
+      if (this.figmaaccount === "figma_yes") {
+        formDataa.append("figma_yes", figma_yes);
+      } else {
+        return;
+      }
+      if (this.gitaccount === "git_yes") {
+        formDataa.append("git_yes", git_yes);
+      } else {
+        return;
+      }
+      if (this.referral === "referral_other") {
+        formDataa.append("referral_other", referral_other);
+      } else {
+        return;
+      }
 
       if (this.can_work_in_usa === "No") {
         console.log("You must be eligible to work in the US");
@@ -955,10 +954,11 @@ export default {
         });
         return;
       } else {
+        this.loading = true;
         axios
-          .put(
+          .post(
             `https://linkedin-signin-prototype.herokuapp.com/api/users/${this.form.email}`,
-            formData
+            formDataa
           )
           .then((resp) => {
             console.log(resp);
@@ -967,12 +967,16 @@ export default {
               color: "primary",
               position: "top",
             });
+            this.loading = false;
+
             this.$router.replace("/");
             localStorage.removeItem("userDetails");
           })
           .catch(({ response }) => {
             console.log(response);
             this.inputErr = response.data.error;
+            this.loading = false;
+
             setTimeout(() => {
               this.inputErr = "";
             }, 15000);
