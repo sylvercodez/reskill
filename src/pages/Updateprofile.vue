@@ -556,14 +556,13 @@ export default {
 
         // validate email value and return messages...
       },
-      phone(value) {
-        if (value.length < 8) {
-          return "this field must contain at least 8 characters";
-        }
+      // phone(value) {
+      //   if (value.length < 8) {
+      //     return "this field must contain at least 8 characters";
+      //   }
 
-        return true;
-        // validate name value and return messages...
-      },
+      //   return true;
+      // },
       representation(value) {
         if (!value) {
           return "this field is required";
@@ -873,6 +872,7 @@ export default {
       this.image = "";
     },
     submit() {
+      console.log("first");
       const timezone = this.timezone;
 
       const name = this.form.name;
@@ -921,17 +921,25 @@ export default {
       if (this.figmaaccount === "figma_yes") {
         formDataa.append("figma_yes", figma_yes);
       } else {
+        this.$q.notify({
+          message: "Your Figma Email is required",
+          color: "primary",
+          position: "top",
+        });
         return;
       }
       if (this.gitaccount === "git_yes") {
         formDataa.append("git_yes", git_yes);
       } else {
+        this.$q.notify({
+          message: "Your GitHub Email is required",
+          color: "primary",
+          position: "top",
+        });
         return;
       }
       if (this.referral === "referral_other") {
         formDataa.append("referral_other", referral_other);
-      } else {
-        return;
       }
 
       if (this.can_work_in_usa === "No") {
@@ -1347,7 +1355,7 @@ input[type="file"] {
   display: flex;
   justify-content: center;
 }
-@media (max-width: 500px) {
+@media (max-width: 800px) {
   .input-wrap .input input:placeholder-shown,
   select {
     font-size: 14px;
@@ -1357,6 +1365,10 @@ input[type="file"] {
   }
   .two {
     grid-template-columns: 1fr;
+  }
+
+  .form-box {
+    padding: 10px;
   }
   .resp {
     padding: 1rem;

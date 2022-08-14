@@ -44,7 +44,7 @@ Reskill Americans is currently accepting enrollment for our 7-month software dev
               />
             </div>
    <div class="button ">
-            <q-btn type="submit" class="btn buttonss">Enroll</q-btn>
+            <q-btn type="submit" :loading='loading' class="btn buttonss">Enroll</q-btn>
           </div>
           </div>
           </div>
@@ -84,7 +84,7 @@ export default {
     return {
       inputErr: "",
        enrolled: '',
-
+loading:false,
       form: {
         email: "",
       },
@@ -92,6 +92,8 @@ export default {
   },
   methods: {
     async submit() {
+          this.loading = true
+
       await axios
         .post(
           "https://linkedin-signin-prototype.herokuapp.com/api/users",
@@ -99,6 +101,8 @@ export default {
         )
         .then((resp) => {
           console.log(resp);
+          this.loading = false
+
           localStorage.setItem(
             "userDetails",
             JSON.stringify(resp.data.payload)
@@ -113,6 +117,8 @@ export default {
           console.log(resp);
         })
         .catch(({ response }) => {
+          this.loading = false
+
           if(response.data.error ){
             console.log(response)
             this.inputErr = response.data.error;
