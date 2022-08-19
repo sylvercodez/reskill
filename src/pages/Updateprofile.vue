@@ -5,9 +5,9 @@
         <h4 class="header-text">Enroll Now</h4>
       </div>
 
-      <div class="error" v-if="inputErr">
+      <!-- <div class="error" v-if="inputErr">
         {{ inputErr }}
-      </div>
+      </div> -->
       <form @submit.prevent="submit" class="form-box">
         <div class="form-box">
           <div class="input-wrap">
@@ -556,13 +556,7 @@ export default {
 
         // validate email value and return messages...
       },
-      // phone(value) {
-      //   if (value.length < 8) {
-      //     return "this field must contain at least 8 characters";
-      //   }
 
-      //   return true;
-      // },
       representation(value) {
         if (!value) {
           return "this field is required";
@@ -874,6 +868,9 @@ export default {
     submit() {
       console.log("first");
       const timezone = this.timezone;
+      const city = this.timezone;
+      const state = this.timezone;
+      const city_and_state = this.timezone;
 
       const name = this.form.name;
       const email = this.form.email;
@@ -897,6 +894,32 @@ export default {
       const phone = this.phone;
       const referral_other = this.othersInfo;
 
+      const sentData = {
+        name,
+        email,
+        linkedin_url,
+        learning_track,
+        referral,
+        gitaccount,
+        figmaaccount,
+        photo,
+        representation,
+        employment_status,
+        git_yes,
+        tech_experience,
+        hours_per_week,
+        age_group,
+        highest_school,
+        field__of__study,
+        figma_yes,
+        can_work_in_usa,
+        gender,
+        phone,
+        referral_other,
+        city,
+        state,
+      };
+
       const formDataa = new FormData();
       formDataa.append("photo", photo);
       formDataa.append("representation", representation);
@@ -918,28 +941,35 @@ export default {
       formDataa.append("tech_experience", tech_experience);
       formDataa.append("age_group", age_group);
       formDataa.append("_method", "PUT");
-      if (this.figmaaccount === "figma_yes") {
-        formDataa.append("figma_yes", figma_yes);
-      } else {
+      if (this.figmaaccount === "figma_yes" && this.figmaInfo === "") {
         this.$q.notify({
           message: "Your Figma Email is required",
           color: "primary",
           position: "top",
         });
         return;
-      }
-      if (this.gitaccount === "git_yes") {
-        formDataa.append("git_yes", git_yes);
       } else {
+        formDataa.append("figma_yes", figma_yes);
+      }
+      if (this.gitaccount === "git_yes" && this.gitInfo === "") {
         this.$q.notify({
           message: "Your GitHub Email is required",
           color: "primary",
           position: "top",
         });
         return;
+      } else {
+        formDataa.append("git_yes", git_yes);
       }
-      if (this.referral === "referral_other") {
-        formDataa.append("referral_other", referral_other);
+      if (this.referral === "referral_other" && this.othersInfo === "") {
+        this.$q.notify({
+          message: "Your referral is required",
+          color: "primary",
+          position: "top",
+        });
+        return;
+      } else {
+        formDataa.append("othersInfo", othersInfo);
       }
 
       if (this.can_work_in_usa === "No") {
@@ -963,11 +993,8 @@ export default {
         return;
       } else {
         this.loading = true;
-        axios
-          .post(
-            `https://linkedin-signin-prototype.herokuapp.com/api/users/${this.form.email}`,
-            formDataa
-          )
+        this.$api
+          .put(`/users/${this.form.email}`, { sentData })
           .then((resp) => {
             console.log(resp);
             this.$q.notify({
@@ -990,7 +1017,7 @@ export default {
             }, 15000);
 
             this.$q.notify({
-              message: response.data.error,
+              message: response.data.message || response.data.error,
               color: "secondary",
               position: "top",
             });
