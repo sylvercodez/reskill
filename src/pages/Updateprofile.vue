@@ -905,17 +905,17 @@ export default {
         photo,
         representation,
         employment_status,
-        git_yes,
+        // git_yes,
         tech_experience,
         hours_per_week,
         age_group,
         highest_school,
         field__of__study,
-        figma_yes,
+        // figma_yes,
         can_work_in_usa,
         gender,
         phone,
-        referral_other,
+        // referral_other,
         city,
         state,
       };
@@ -949,7 +949,32 @@ export default {
         });
         return;
       } else {
-        formDataa.append("figma_yes", figma_yes);
+        const sentData = {
+          name,
+          email,
+          linkedin_url,
+          learning_track,
+          referral,
+          gitaccount,
+          figmaaccount,
+          photo,
+          representation,
+          employment_status,
+          // git_yes,
+          tech_experience,
+          hours_per_week,
+          age_group,
+          highest_school,
+          field__of__study,
+          figma_yes,
+          can_work_in_usa,
+          gender,
+          phone,
+          // referral_other,
+          city,
+          state,
+        };
+        // formDataa.append("figma_yes", figma_yes);
       }
       if (this.gitaccount === "git_yes" && this.gitInfo === "") {
         this.$q.notify({
@@ -959,7 +984,32 @@ export default {
         });
         return;
       } else {
-        formDataa.append("git_yes", git_yes);
+        const sentData = {
+          name,
+          email,
+          linkedin_url,
+          learning_track,
+          referral,
+          gitaccount,
+          figmaaccount,
+          photo,
+          representation,
+          employment_status,
+          git_yes,
+          tech_experience,
+          hours_per_week,
+          age_group,
+          highest_school,
+          field__of__study,
+          // figma_yes,
+          can_work_in_usa,
+          gender,
+          phone,
+          // referral_other,
+          city,
+          state,
+        };
+        // formDataa.append("git_yes", git_yes);
       }
       if (this.referral === "referral_other" && this.othersInfo === "") {
         this.$q.notify({
@@ -969,7 +1019,32 @@ export default {
         });
         return;
       } else {
-        formDataa.append("othersInfo", othersInfo);
+        const sentData = {
+          name,
+          email,
+          linkedin_url,
+          learning_track,
+          referral,
+          gitaccount,
+          figmaaccount,
+          photo,
+          representation,
+          employment_status,
+          // git_yes,
+          tech_experience,
+          hours_per_week,
+          age_group,
+          highest_school,
+          field__of__study,
+          // figma_yes,
+          can_work_in_usa,
+          gender,
+          phone,
+          referral_other,
+          city,
+          state,
+        };
+        // formDataa.append("othersInfo", referral_other);
       }
 
       if (this.can_work_in_usa === "No") {
