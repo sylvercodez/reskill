@@ -774,11 +774,11 @@ export default {
         });
         return;
       } else {
-        sentData = {
-          ...sentData,
-          figma_yes,
-        };
-        // formDataa.append("figma_yes", figma_yes);
+        // sentData = {
+        //   ...sentData,
+        //   figma_yes,
+        // };
+        formDataa.append("figma_yes", figma_yes);
       }
       if (this.gitaccount === "git_yes" && this.gitInfo === "") {
         this.$q.notify({
@@ -788,11 +788,11 @@ export default {
         });
         return;
       } else {
-        sentData = {
-          ...sentData,
-          git_yes,
-        };
-        // formDataa.append("git_yes", git_yes);
+        // sentData = {
+        //   ...sentData,
+        //   git_yes,
+        // };
+        formDataa.append("git_yes", git_yes);
       }
       if (this.referral === "referral_other" && this.othersInfo === "") {
         this.$q.notify({
