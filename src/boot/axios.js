@@ -21,7 +21,7 @@ let headers = {
   "Access-Control-Allow-Credentials": "true",
 };
 const api = axios.create({
-  baseURL: 'https://linkedin-signin-prototype.herokuapp.com/api',
+  baseURL: process.env.baseURL,
   headers,
 });
 
@@ -56,7 +56,7 @@ export default boot(({ app, router }) => {
 
   // ^ ^ ^ this will allow you to use this.$api (for Vue Options API form)
   //       so you can easily perform requests against your app's API
-  
+  console.log(api)
 });
 
 export { axios, api };

@@ -585,7 +585,7 @@ export default {
       referral: "",
       gitaccount: "",
       figmaaccount: "",
-      text: "",
+
       representation: "",
       employment_status: "",
       git_yes: "",
@@ -603,9 +603,26 @@ export default {
       inputImage: null,
       imageFile: [],
       form: {
+        age_group: this.userData("age_group"),
+        can_work_in_usa: this.userData("can_work_in_usa"),
         email: this.userData("email"),
+        employment_status: this.userData("employment_status"),
+        gender: this.userData("gender"),
+        highest_school: this.userData("highest_school"),
+        hours_per_week: this.userData("hours_per_week"),
+        learning_track: this.userData("learning_track"),
         linkedin_url: this.userData("linkedin_url"),
+        location: this.userData("location"),
         name: this.userData("name"),
+
+        phone: this.userData("phone"),
+        referral: this.userData("referral"),
+
+        gitaccount: this.userData("gitaccount"),
+        figmaaccount: this.userData("figmaaccount"),
+        representation: this.userData("representation"),
+        tech_experience: this.userData("tech_experience"),
+        timezone: this.userData("timezone"),
       },
     };
   },
@@ -638,14 +655,6 @@ export default {
       }
     },
   },
-
-  created() {
-    this.userData();
-  },
-  beforeDestroy() {
-    localStorage.removeItem("userDetails");
-    localStorage.clear();
-  },
   methods: {
     setFile(prop) {
       this.inputImage = prop;
@@ -656,14 +665,12 @@ export default {
       } else {
         this.$q.notify({
           message:
-            "You need to enter your email to start or complete your registration",
+            "You need to enter your email to register or complete your registration",
           color: "primary",
           position: "top",
         });
 
-        setTimeout(() => {
-          this.$router.replace("/");
-        }, 0);
+        this.$router.replace("/");
       }
     },
     onDrop: function (e) {
