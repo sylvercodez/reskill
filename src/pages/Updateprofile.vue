@@ -423,7 +423,7 @@
                 placeholder=""
               />
             </div>
-            <span v-if="inputErr" class="error">{{ inputErr }}</span>
+            <!-- <span v-if="inputErr" class="error">{{ inputErr }}</span> -->
             <!-- <span class="error">{{ field__of__studyErr }}</span> -->
           </div>
 
@@ -764,6 +764,9 @@ export default {
       formDataa.append("hours_per_week", hours_per_week);
       formDataa.append("tech_experience", tech_experience);
       formDataa.append("age_group", age_group);
+      formDataa.append("git_yes", git_yes);
+      formDataa.append("figma_yes", figma_yes);
+
       formDataa.append("_method", "PUT");
 
       if (this.figmaaccount === "figma_yes" && this.figmaInfo === "") {
