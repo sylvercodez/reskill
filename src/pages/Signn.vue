@@ -125,13 +125,11 @@ loading:false,
             setTimeout(() => {
               this.inputErr = "";
             }, 4000);
-            this.$q.notify({
-              message: response.data.error,
-              color: "secondary",
-              position: "bottom",
-            });
-
-
+            // this.$q.notify({
+            //   message: response.data.error,
+            //   color: "secondary",
+            //   position: "bottom",
+            // });
 
           }
           console.log(response);
