@@ -65,22 +65,22 @@
               <div class="input">
                 <i class="ri-image-fill q-mr-md icon-enroll"></i>
 
-                <!-- <input
+                <input
                   style="width: 100%"
                   dense
                   type="file"
                   @change="onChange"
                   name="photo"
                   accept=".jpg,.png,.svg,.jpeg"
-                /> -->
-                <q-file
+                />
+                <!-- <q-file
                   style="width: 100%"
                   dense
-                  name="photo"
                   accept=".jpg,.png,.svg,.jpeg"
-                  v-model="inputImage"
+                  v-model="image"
+                  name="photo"
                   @update:model-value="setFile"
-                />
+                /> -->
               </div>
               <span
                 v-if="inputErr === 'Missing Fields! Photo is required'"
@@ -561,6 +561,7 @@ export default {
     };
 
     return {
+      image,
       handleUpload,
       acknowledge: ref(false),
     };
@@ -584,7 +585,7 @@ export default {
       referral: "",
       gitaccount: "",
       figmaaccount: "",
-      photo: "",
+
       representation: "",
       employment_status: "",
       git_yes: "",
@@ -600,7 +601,7 @@ export default {
       referral_other: "",
       inputErr: "",
       inputImage: null,
-      imageFile: "",
+      imageFile: [],
       form: {
         age_group: this.userData("age_group"),
         can_work_in_usa: this.userData("can_work_in_usa"),
@@ -670,8 +671,8 @@ export default {
     },
     onChange(e) {
       var files = e.target.files;
-      this.imageFile = files[0];
       this.createFile(files[0]);
+      this.imageFile = files;
     },
     createFile(file) {
       if (!file.type.match("image.*")) {
@@ -685,12 +686,9 @@ export default {
         vm.image = e.target.result;
       };
       reader.readAsDataURL(file);
-      this.imageFile = file;
     },
-    removeFile() {
-      this.image = "";
-    },
-    submit() {
+
+    submit(e) {
       console.log("first");
       const timezone = this.timezone;
       const city = this.timezone;
@@ -702,7 +700,7 @@ export default {
       const referral = this.referral;
       const gitaccount = this.gitaccount;
       const figmaaccount = this.figmaaccount;
-      const photo = this.inputImage;
+      let photo = this.image;
       const representation = this.representation;
       const employment_status = this.employment_status;
       const git_yes = this.gitInfo;
@@ -742,10 +740,11 @@ export default {
         city,
         state,
       };
-
+      let form = e.currentTarget;
+      console.log(form);
       // const formDataa = new FormData();
-      const formDataa = new FormData();
-
+      const formDataa = new FormData(form);
+      console.log(this.imageFile);
       formDataa.append("photo", photo);
       formDataa.append("representation", representation);
       formDataa.append("name", name);
@@ -766,6 +765,7 @@ export default {
       formDataa.append("tech_experience", tech_experience);
       formDataa.append("age_group", age_group);
       formDataa.append("_method", "PUT");
+
       if (this.figmaaccount === "figma_yes" && this.figmaInfo === "") {
         this.$q.notify({
           message: "Your Figma Email is required",
@@ -829,9 +829,11 @@ export default {
         });
         return;
       } else {
+        let formDataObject = Object.fromEntries(formDataa.entries());
+        let formDataJsonString = JSON.stringify(formDataObject);
         this.loading = true;
         this.$api
-          .put(`/users/${this.form.email}`, sentData)
+          .put(`/users/${this.form.email}`, formDataJsonString)
           .then((resp) => {
             console.log(resp);
             this.$q.notify({
