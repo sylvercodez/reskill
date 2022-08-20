@@ -19,7 +19,7 @@ module.exports = configure(function (ctx) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/boot-files
-    boot: ['axios'
+    boot: [
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -44,16 +44,6 @@ module.exports = configure(function (ctx) {
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
       vueRouterMode: 'history', // available values: 'hash', 'history'
-      env: {
-        baseURL: 'https://linkedin-signin-prototype.herokuapp.com/api',
-        rootURL: 'https://linkedin-signin-prototype.herokuapp.com/api',
-        // baseURL: 'http://127.0.0.1:8000/api/v2',
-        // rootURL: 'http://127.0.0.1:8000/api/',
-        site_name: 'MangaClub',
-        description: 'Manga Club',
-        keywords: 'Manga Club',
-        DEBUG: true,
-        LOG_LEVEL: 'error',
 
       // transpile: false,
       // publicPath: '/',
