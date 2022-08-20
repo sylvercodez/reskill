@@ -84,11 +84,17 @@ export default {
     return {
       inputErr: "",
        enrolled: '',
-loading:false,
+      loading:false,
       form: {
         email: "",
       },
     };
+  },
+  created(){
+    localStorage.removeItem("userDetails");
+  },
+  created(){
+    localStorage.removeItem("userDetails");
   },
   methods: {
     async submit() {
