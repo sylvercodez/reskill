@@ -44,6 +44,14 @@ module.exports = configure(function (ctx) {
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
       vueRouterMode: 'history', // available values: 'hash', 'history'
+      env: {
+        baseURL: 'https://linkedin-signin-prototype.herokuapp.com/api',
+        rootURL: 'https://linkedin-signin-prototype.herokuapp.com/api',
+        site_name: 'Reskill',
+        description: 'Reskill',
+        keywords: 'Reskill Americans',
+        DEBUG: true,
+        LOG_LEVEL: 'error',
 
       // transpile: false,
       // publicPath: '/',
@@ -67,7 +75,7 @@ module.exports = configure(function (ctx) {
       chainWebpack (/* chain */) {
         //
       },
-    },
+    }},
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
     devServer: {
