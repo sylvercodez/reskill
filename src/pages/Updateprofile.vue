@@ -660,7 +660,18 @@ export default {
       this.inputImage = prop;
     },
     userData(key) {
-      return JSON.parse(localStorage.getItem("userDetails"))[key];
+      if (localStorage.getItem("userDetails")) {
+        return JSON.parse(localStorage.getItem("userDetails"))[key];
+      } else {
+        this.$q.notify({
+          message:
+            "You need to enter your email to register or complete your registration",
+          color: "primary",
+          position: "top",
+        });
+
+        this.$router.replace("/");
+      }
     },
     onDrop: function (e) {
       e.stopPropagation();
