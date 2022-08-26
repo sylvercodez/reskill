@@ -585,7 +585,6 @@ export default {
       referral: "",
       gitaccount: "",
       figmaaccount: "",
-
       representation: "",
       employment_status: "",
       git_yes: "",
