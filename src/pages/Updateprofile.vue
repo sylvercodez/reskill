@@ -335,7 +335,7 @@
                 <option value="I am proficient but needed a refresher course.">
                   I am proficient but needed a refresher course.
                 </option>
-                <option value="Others">Others</option>
+                <option value="Others">Other</option>
               </select>
             </div>
             <span
