@@ -122,6 +122,7 @@
                   <option value="other">Other</option>
                 </select>
               </div>
+              
               <span
                 v-if="inputErr === 'Missing Fields! Representation is required'"
                 class="error"
