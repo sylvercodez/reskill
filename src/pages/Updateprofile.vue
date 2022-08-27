@@ -42,7 +42,7 @@
               />
             </div>
           </div>
-          <div class="two">
+          
             <div class="input-wrap">
               <label class="form-det" for="">Linkedin Profile URL</label> <br />
 
@@ -58,36 +58,9 @@
               </div>
             </div>
 
-            <div class="input-wrap">
-              <label class="form-det" for="">Profile Image</label> <br />
-
-              <div class="input">
-                <i class="ri-image-fill q-mr-md icon-enroll"></i>
-
-                <input
-                  style="width: 100%"
-                  dense
-                  type="file"
-                  @change="onChange"
-                  name="photo"
-                  accept=".jpg,.png,.svg,.jpeg"
-                />
-                <!-- <q-file
-                  style="width: 100%"
-                  dense
-                  accept=".jpg,.png,.svg,.jpeg"
-                  v-model="image"
-                  name="photo"
-                  @update:model-value="setFile"
-                /> -->
-              </div>
-              <span
-                v-if="inputErr === 'Missing Fields! Photo is required'"
-                class="error"
-                >{{ inputErr }}</span
-              >
-            </div>
-          </div>
+            
+              
+                
           <div class="two">
             <div class="input-wrap">
               <label class="form-det" for=""
