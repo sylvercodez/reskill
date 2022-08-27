@@ -652,7 +652,7 @@
             <input
               v-model="acknowledge"
               type="checkbox"
-              style="margin-right: 17px"
+              style="margin-right: 17px,transform: scale(1.5);"
             />
             <label class="form-det" for=""
               >By submitting this Enrollment Application, you acknowledge that
