@@ -64,7 +64,7 @@
           </div>
           </form> -->
           <q-btn :loading='loading' class="btn buttonss" @click="loginWithLinkedin">
-            login with linkedIn
+            Login with Linkedin
           </q-btn>
       </div>
     </div>
