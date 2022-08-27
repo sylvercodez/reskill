@@ -50,11 +50,10 @@
                 <i class="ri-shield-user-fill q-mr-md icon-enroll"></i>
 
                 <input
-                  disabled
                   type="text"
                   name="linkedin_url"
                   id="te"
-                  v-model="form.linkedin_url"
+                  v-model="linkedin_url"
                 />
               </div>
             </div>
@@ -338,6 +337,58 @@
           </div>
           <div class="input-wrap">
             <label class="form-det" for=""
+              >How would you categorize your level of software development prior
+              to enrolling in this program?
+            </label>
+            <br />
+
+            <div class="input">
+              <i class="ri-inbox-fill q-mr-md icon-enroll"></i>
+
+              <select name="prior_knowledge" v-model="prior_knowledge" id="">
+                <option value="I know nothing about software development.">
+                  I know nothing about software development
+                </option>
+                <option
+                  value="I knew basic software development/design principles."
+                >
+                  I knew basic software development / design principles
+                </option>
+                <option
+                  value="I had a little software development/design on my own watching YouTube, coding challenges etc., but wanted to get formal training."
+                >
+                  I had a little software development/design on my own watching
+                  YouTube, coding challenges etc., but wanted to get formal
+                  training
+                </option>
+                <option value="I am proficient but needed a refresher course.">
+                  I am proficient but needed a refresher course.
+                </option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+            <span
+              v-if="
+                inputErr === 'Missing Fields! Please specify Prior Knowledge'
+              "
+              class="error"
+              >{{ inputErr }}</span
+            >
+          </div>
+          <div v-if="prior_knowledge_other" class="input-wrap">
+            <label class="form-det" for="">Whats your prior knowledge </label>
+
+            <div class="input">
+              <input
+                type="textarea"
+                name="prior_knowledge_other_info"
+                v-model="prior_knowledge_other_info"
+                placeholder=""
+              />
+            </div>
+          </div>
+          <div class="input-wrap">
+            <label class="form-det" for=""
               >Which best describes your tech experience:
             </label>
             <br />
@@ -364,34 +415,135 @@
             >
           </div>
 
+          <div class="">
+            <div class="input-wrap">
+              <label class="form-det" for=""
+                >How many hours per week are you able to commit to this program
+                (dedicated to learning, doing assignments, and peer/instructor
+                interaction) over the seven months you are enrolled?
+              </label>
+              <br />
+
+              <div class="input">
+                <i class="ri-timer-fill q-mr-md icon-enroll"></i>
+
+                <select name="hours_per_week" v-model="hours_per_week" id="">
+                  <option value="15 hours per week">
+                    15 hours per week (minimum)
+                  </option>
+                  <option value="16 - 24 hours per week">
+                    16 - 24 hours per week
+                  </option>
+                  <option value="25 - 40 hours per week">
+                    25 - 40 hours per week
+                  </option>
+                </select>
+              </div>
+              <span
+                v-if="
+                  inputErr ===
+                  'Missing Fields! Please choose Hours available Per Week'
+                "
+                class="error"
+                >{{ inputErr }}</span
+              >
+            </div>
+            <div class="input-wrap">
+              <label class="form-det" for=""
+                >Years of professional experience (including non-office
+                environments)
+              </label>
+              <br />
+
+              <div class="input">
+                <i class="ri-timer-fill q-mr-md icon-enroll"></i>
+
+                <select
+                  name="professional_experience"
+                  v-model="professional_experience"
+                  id=""
+                >
+                  <option value="5 - 10years">5 - 10years</option>
+                  <option value="10 - 15years">10 - 15years</option>
+                  <option value="20 - 25years">20 - 25years</option>
+                  <option value="More than 25years">More than 25years</option>
+                </select>
+              </div>
+              <span
+                v-if="
+                  inputErr ===
+                  'Missing Fields! Please choose Hours available Per Week'
+                "
+                class="error"
+                >{{ inputErr }}</span
+              >
+            </div>
+          </div>
           <div class="input-wrap">
             <label class="form-det" for=""
-              >How many hours per week are you able to commit to this program
-              (dedicated to learning, doing assignments, and peer/instructor
-              interaction) over the seven months you are enrolled?
+              >Are you open to meeting with tech companies during the training
+              program?
             </label>
             <br />
 
             <div class="input">
               <i class="ri-timer-fill q-mr-md icon-enroll"></i>
 
-              <select name="hours_per_week" v-model="hours_per_week" id="">
-                <option value="15 hours per week">
-                  15 hours per week (minimum)
-                </option>
-                <option value="16 - 24 hours per week">
-                  16 - 24 hours per week
-                </option>
-                <option value="25 - 40 hours per week">
-                  25 - 40 hours per week
-                </option>
+              <select name="open_to_meet" v-model="open_to_meet" id="">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
               </select>
             </div>
+          </div>
+          <div class="input-wrap">
+            <label class="form-det" for=""
+              >Do you hope to change your job post RA training
+            </label>
+            <br />
+
+            <div class="input">
+              <i class="ri-timer-fill q-mr-md icon-enroll"></i>
+
+              <select name="will_change_job" v-model="will_change_job" id="">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+          </div>
+          <div v-if="show_change_job" class="input-wrap">
+            <label class="form-det" for=""
+              >If so, what sort of role are you looking for when you complete
+              the program?
+            </label>
+
+            <div class="input">
+              <input
+                type="text"
+                row="5"
+                name="will_change_job_role"
+                v-model="will_change_job_role"
+                placeholder=""
+              />
+            </div>
+            <!-- <span v-if="inputErr" class="error">{{ inputErr }}</span> -->
+            <!-- <span class="error">{{ field__of__studyErr }}</span> -->
+          </div>
+          <div class="input-wrap">
+            <label class="form-det" for=""
+              >All of the industries in which you have worked(in any capacity) -
+              one-per-line
+            </label>
+
+            <div class="">
+              <textarea
+                type="text"
+                name="industries"
+                v-model="industries"
+                placeholder=""
+              />
+            </div>
             <span
-              v-if="
-                inputErr ===
-                'Missing Fields! Please choose Hours available Per Week'
-              "
+              v-if="inputErr === 'Missing Fields! Please specify indusries'"
               class="error"
               >{{ inputErr }}</span
             >
@@ -573,6 +725,7 @@ export default {
       git_yes: false,
       gitInfo: "",
       figma_yes: false,
+      linkedin_url: "",
       figmaInfo: "",
       loading: false,
       timezone: "",
@@ -585,7 +738,6 @@ export default {
       referral: "",
       gitaccount: "",
       figmaaccount: "",
-
       representation: "",
       employment_status: "",
       git_yes: "",
@@ -599,6 +751,15 @@ export default {
       gender: "",
       phone: "",
       referral_other: "",
+      professional_experience: "",
+      will_change_job: "",
+      open_to_meet: "",
+      prior_knowledge: "",
+      prior_knowledge_other: false,
+      prior_knowledge_other_info: "",
+      show_change_job: false,
+      industries: "",
+      will_change_job_role: "",
       inputErr: "",
       inputImage: null,
       imageFile: [],
@@ -636,6 +797,14 @@ export default {
         this.othersInfo = "";
       }
     },
+    prior_knowledge: function () {
+      if (this.prior_knowledge === "Others") {
+        this.prior_knowledge_other = true;
+      } else {
+        this.prior_knowledge_other = false;
+        this.prior_knowledge_other_info = "";
+      }
+    },
     gitaccount: function () {
       if (this.gitaccount === "git_yes") {
         this.git_yes = true;
@@ -652,6 +821,17 @@ export default {
         console.log(this.figmaaccount);
         this.figma_yes = false;
         this.figmaInfo = "";
+      }
+    },
+    will_change_job: function () {
+      if (this.will_change_job === "yes") {
+        this.show_change_job = true;
+      } else {
+        // console.log(this.figmaaccount);
+        // this.figma_yes = false;
+        this.show_change_job = false;
+
+        this.will_change_job_role = "";
       }
     },
   },
@@ -725,6 +905,13 @@ export default {
       const gender = this.gender;
       const phone = this.phone;
       const referral_other = this.othersInfo;
+      const professional_experience = this.professional_experience;
+      const will_change_job = this.will_change_job;
+      const industries = this.industries;
+      const will_change_job_role = this.will_change_job_role;
+      const prior_knowledge = this.prior_knowledge;
+      const prior_knowledge_other_info = this.prior_knowledge_other_info;
+      const open_to_meet = this.open_to_meet;
 
       let sentData = {
         name,
@@ -777,6 +964,12 @@ export default {
       formDataa.append("age_group", age_group);
       formDataa.append("git_yes", git_yes);
       formDataa.append("figma_yes", figma_yes);
+      formDataa.append("professional_experience", professional_experience);
+      formDataa.append("will_change_job", will_change_job);
+      formDataa.append("industries", industries);
+      formDataa.append("prior_knowledge", prior_knowledge);
+      formDataa.append("open_to_meet", open_to_meet);
+      formDataa.append("linkedin_url", linkedin_url);
 
       formDataa.append("_method", "PUT");
 
@@ -788,11 +981,23 @@ export default {
         });
         return;
       } else {
-        // sentData = {
-        //   ...sentData,
-        //   figma_yes,
-        // };
         formDataa.append("figma_yes", figma_yes);
+      }
+      if (
+        this.prior_knowledge === "Others" &&
+        this.prior_knowledge_other_info === ""
+      ) {
+        this.$q.notify({
+          message: "Your prior knowledge is required",
+          color: "primary",
+          position: "top",
+        });
+        return;
+      } else {
+        formDataa.append(
+          "prior_knowledge_other_info",
+          prior_knowledge_other_info
+        );
       }
       if (this.gitaccount === "git_yes" && this.gitInfo === "") {
         this.$q.notify({
@@ -802,10 +1007,6 @@ export default {
         });
         return;
       } else {
-        // sentData = {
-        //   ...sentData,
-        //   git_yes,
-        // };
         formDataa.append("git_yes", git_yes);
       }
       if (this.referral === "referral_other" && this.othersInfo === "") {
@@ -816,11 +1017,17 @@ export default {
         });
         return;
       } else {
-        sentData = {
-          ...sentData,
-          referral_other,
-        };
-        // formDataa.append("othersInfo", referral_other);
+        formDataa.append("othersInfo", referral_other);
+      }
+      if (this.will_change_job === "yes" && this.will_change_job_role === "") {
+        this.$q.notify({
+          message: "What role would you want is required",
+          color: "primary",
+          position: "top",
+        });
+        return;
+      } else {
+        formDataa.append("will_change_job_role", will_change_job_role);
       }
 
       if (this.can_work_in_usa === "No") {
@@ -987,6 +1194,16 @@ select {
   align-items: center;
   height: 50px;
 }
+textarea {
+  padding: 0.75rem;
+  background: rgba(236, 236, 236, 0.67);
+  border: 1px solid rgba(229, 229, 229, 0.2);
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
 
 .input-wrap .input input,
 select {
@@ -998,7 +1215,8 @@ select {
   cursor: pointer;
 }
 .input-wrap .input input:focus,
-select:focus {
+select:focus,
+textarea:focus {
   outline: none;
 }
 .input-wrap .input .input:hover {
