@@ -651,6 +651,7 @@
           <div style="display: flex; align-items: center; margin-top: 12px">
             <input
               v-model="acknowledge"
+              class="checkbos"
               type="checkbox"
               style="margin-right: 17px,transform: scale(1.5);"
             />
@@ -1143,6 +1144,9 @@ input::placeholder {
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   align-items: center;
+}
+.checkbos{
+transform: scale(1.5);
 }
 .form-det {
   font-family: "Open Sans";
