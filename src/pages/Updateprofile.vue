@@ -1147,6 +1147,7 @@ input::placeholder {
 }
 .checkbos{
 transform: scale(1.5);
+margin-right: 17px;
 }
 .form-det {
   font-family: "Open Sans";
