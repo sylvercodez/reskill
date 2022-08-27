@@ -534,10 +534,9 @@
               one-per-line
             </label>
 
-            <div class="input">
-              <input
+            <div class="">
+              <textarea
                 type="text"
-                row="5"
                 name="industries"
                 v-model="industries"
                 placeholder=""
@@ -1195,6 +1194,16 @@ select {
   align-items: center;
   height: 50px;
 }
+textarea {
+  padding: 0.75rem;
+  background: rgba(236, 236, 236, 0.67);
+  border: 1px solid rgba(229, 229, 229, 0.2);
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
 
 .input-wrap .input input,
 select {
@@ -1206,7 +1215,8 @@ select {
   cursor: pointer;
 }
 .input-wrap .input input:focus,
-select:focus {
+select:focus,
+textarea:focus {
   outline: none;
 }
 .input-wrap .input .input:hover {
