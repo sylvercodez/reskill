@@ -143,12 +143,12 @@
                 <i class="ri-apps-fill q-mr-md icon-enroll"></i>
 
                 <select name="representation" v-model="representation" id="">
-                  <option value="native american">Native American</option>
-                  <option value="alaska native">Alaska Native</option>
-                  <option value="black">Black</option>
-                  <option value="hispanic">Hispanic</option>
+                  <option value="native american">American Indian or Alaskan Native</option>
+                
+                  <option value="black">Black (not of Hispanic origin)</option>
+                  <option value="hispanic"> Hispanic (Including persons of Mexican, Puerto RIcan, Cuban, and Central or South American origin</option>
                   <option value="pacific islander">Pacific Islander</option>
-                  <option value="southeast asian">Southeast Asian</option>
+                  <option value="other">Other</option>
                 </select>
               </div>
               <span
