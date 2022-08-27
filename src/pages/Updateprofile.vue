@@ -143,12 +143,12 @@
                 <i class="ri-apps-fill q-mr-md icon-enroll"></i>
 
                 <select name="representation" v-model="representation" id="">
-                  <option value="native american">Native American</option>
-                  <option value="alaska native">Alaska Native</option>
-                  <option value="black">Black</option>
-                  <option value="hispanic">Hispanic</option>
+                  <option value="native american">American Indian or Alaskan Native</option>
+                
+                  <option value="black">Black (not of Hispanic origin)</option>
+                  <option value="hispanic"> Hispanic (Including persons of Mexican, Puerto RIcan, Cuban, and Central or South American origin</option>
                   <option value="pacific islander">Pacific Islander</option>
-                  <option value="southeast asian">Southeast Asian</option>
+                  <option value="other">Other</option>
                 </select>
               </div>
               <span
@@ -651,8 +651,9 @@
           <div style="display: flex; align-items: center; margin-top: 12px">
             <input
               v-model="acknowledge"
+              class="checkbos"
               type="checkbox"
-              style="margin-right: 17px"
+              style="margin-right: 17px,transform: scale(1.5);"
             />
             <label class="form-det" for=""
               >By submitting this Enrollment Application, you acknowledge that
@@ -1143,6 +1144,10 @@ input::placeholder {
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   align-items: center;
+}
+.checkbos{
+transform: scale(1.5);
+margin-right: 17px;
 }
 .form-det {
   font-family: "Open Sans";
