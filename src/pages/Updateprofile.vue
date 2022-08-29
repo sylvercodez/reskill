@@ -43,31 +43,35 @@
             </div>
           </div>
 
-            <div class="input-wrap">
-              <label class="form-det" for="">Linkedin Profile URL <q-btn color="grey">
-      <img src="../assets/question.svg" alt="">
-        <q-tooltip class="bg-indigo" :offset="[10, 10]">
-         <b> Step 1:</b> Login to your LinkedIn account on <br> your desktop application <br />
-        <b>Step 2</b>: Navigate to your profile <br>
-        <b>Step 3</b>: Copy the url to your profile from the header <br>
-        hint: https://www.linkedin.com/in/your-other-linkedin-profile details/
-        </q-tooltip>
-      </q-btn></label>  <br />
+          <div class="input-wrap">
+            <label class="form-det" for=""
+              >Linkedin Profile URL
+              <q-btn color="grey">
+                <!-- <img src="../assets/question.svg" alt=""> -->
+                <q-tooltip class="bg-indigo" :offset="[10, 10]">
+                  <b> Step 1:</b> Login to your LinkedIn account on <br />
+                  your desktop application <br />
+                  <b>Step 2</b>: Navigate to your profile <br />
+                  <b>Step 3</b>: Copy the url to your profile from the header
+                  <br />
+                  hint: https://www.linkedin.com/in/your-other-linkedin-profile
+                  details/
+                </q-tooltip>
+              </q-btn></label
+            >
+            <br />
 
-              <div class="input">
-                <i class="ri-shield-user-fill q-mr-md icon-enroll"></i>
+            <div class="input">
+              <i class="ri-shield-user-fill q-mr-md icon-enroll"></i>
 
-                <input
-                  type="text"
-                  name="linkedin_url"
-                  id="te"
-                  v-model="linkedin_url"
-                />
-              </div>
+              <input
+                type="text"
+                name="linkedin_url"
+                id="te"
+                v-model="linkedin_url"
+              />
             </div>
-
-
-
+          </div>
 
           <div class="two">
             <div class="input-wrap">
@@ -124,10 +128,15 @@
                 <i class="ri-apps-fill q-mr-md icon-enroll"></i>
 
                 <select name="representation" v-model="representation" id="">
-                  <option value="native american">American Indian or Alaskan Native</option>
+                  <option value="native american">
+                    American Indian or Alaskan Native
+                  </option>
 
                   <option value="black">Black (not of Hispanic origin)</option>
-                  <option value="hispanic"> Hispanic (Including persons of Mexican, Puerto RIcan, Cuban, and Central or South American origin</option>
+                  <option value="hispanic">
+                    Hispanic (Including persons of Mexican, Puerto RIcan, Cuban,
+                    and Central or South American origin
+                  </option>
                   <option value="pacific islander">Pacific Islander</option>
                   <option value="other">Other</option>
                 </select>
@@ -333,12 +342,13 @@
                 <option
                   value="I knew basic software development/design principles. "
                 >
-                I knew basic software development/design principles.
+                  I knew basic software development/design principles.
                 </option>
                 <option
                   value="I had a little knowledge from watching YouTube and coding challenges, but wanted to get formal training. "
                 >
-                I had a little knowledge from watching YouTube and coding challenges, but wanted to get formal training.
+                  I had a little knowledge from watching YouTube and coding
+                  challenges, but wanted to get formal training.
                 </option>
                 <option value="I am proficient, but need a refresher course. ">
                   I am proficient, but need a refresher course.
@@ -366,7 +376,6 @@
               />
             </div>
           </div>
-
 
           <div class="">
             <div class="input-wrap">
@@ -433,10 +442,10 @@
             </div>
           </div>
 
-
           <div class="input-wrap">
             <label class="form-det" for=""
-              >Please list all of the industries in which you have worked, in any capacity: (E.g. Education, Food & Beverage, Construction)
+              >Please list all of the industries in which you have worked, in
+              any capacity: (E.g. Education, Food & Beverage, Construction)
             </label>
 
             <div class="">
@@ -728,7 +737,6 @@ export default {
         this.figmaInfo = "";
       }
     },
-
   },
   methods: {
     setFile(prop) {
@@ -740,7 +748,7 @@ export default {
       } else {
         this.$q.notify({
           message:
-            "You need to enter your email to register or complete your registration",
+            "You need to enter your Login to or complete your registration",
           color: "primary",
           position: "top",
         });
@@ -806,7 +814,6 @@ export default {
 
       const prior_knowledge = this.prior_knowledge;
       const prior_knowledge_other_info = this.prior_knowledge_other_info;
-
 
       let sentData = {
         name,
@@ -1029,13 +1036,13 @@ input::placeholder {
   gap: 2rem;
   align-items: center;
 }
-.checkbos{
+.checkbos {
   -ms-transform: scale(1.5); /* IE */
   -moz-transform: scale(1.5); /* FF */
   -webkit-transform: scale(1.5); /* Safari and Chrome */
   -o-transform: scale(1.5); /* Opera */
-transform: scale(1.5);
-margin-right: 17px;
+  transform: scale(1.5);
+  margin-right: 17px;
 }
 .form-det {
   font-family: "Open Sans";
