@@ -48,7 +48,28 @@
             <label class="form-det" for=""
               >Linkedin Profile URL
               <span color="">
-                <img src="/images/ques.jpeg" alt="" />
+               
+                <q-dialog v-model="alert">
+      <q-card>
+        <q-card-section>
+          <img src="/images/ques.jpeg" alt="" />
+        </q-card-section>
+
+        <q-card-section class="q-pt-none">
+          <b> Step 1:</b> Login to your LinkedIn account on <br />
+                  your desktop application <br />
+                  <b>Step 2</b>: Navigate to your profile <br />
+                  <b>Step 3</b>: Copy the url to your profile from the header
+                  <br />
+                  hint: https://www.linkedin.com/in/your-other-linkedin-profile
+                  details/
+        </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn flat label="OK" color="primary" v-close-popup></q-btn>
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
                 <q-tooltip class="bg-indigo" :offset="[10, 10]">
                   <b> Step 1:</b> Login to your LinkedIn account on <br />
                   your desktop application <br />
@@ -310,8 +331,8 @@
                 <option value="Full-Stack Web Development">
                   Full-Stack Web Development
                 </option>
-                <option value="UI/UX Product Design">
-                  UI/UX Product Design
+                <option value="UI/UX Design">
+                  UI/UX Design
                 </option>
                 <option value=" I haven't decided yet">
                   I haven't decided yet
