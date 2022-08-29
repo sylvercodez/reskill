@@ -5,7 +5,7 @@
         <h4 class="header-text">Enroll Now</h4>
       </div>
       <!-- {{ phone }} -->
-      {{ inputs }}
+      <!-- {{ inputs }} -->
 
       <!-- <div class="error" v-if="inputErr">
         {{ inputErr }}
