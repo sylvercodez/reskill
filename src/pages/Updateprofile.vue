@@ -5,6 +5,7 @@
         <h4 class="header-text">Enroll Now</h4>
       </div>
       <!-- {{ phone }} -->
+      {{ inputs }}
 
       <!-- <div class="error" v-if="inputErr">
         {{ inputErr }}
@@ -17,13 +18,13 @@
             <div class="input">
               <i class="ri-user-fill q-mr-md icon-enroll"></i>
 
-              <input
+              <!-- <input
                 disabled
                 name="name"
                 type="text"
                 v-model="form.name"
                 placeholder="Ademola"
-              />
+              /> -->
             </div>
           </div>
 
@@ -33,21 +34,21 @@
             <div class="input">
               <i class="ri-mail-line q-mr-md icon-enroll"></i>
 
-              <input
+              <!-- <input
                 disabled
                 type="email"
                 name="email"
                 v-model="form.email"
                 placeholder="Enter your email"
-              />
+              /> -->
             </div>
           </div>
 
           <div class="input-wrap">
             <label class="form-det" for=""
               >Linkedin Profile URL
-              <q-btn color="grey">
-                <!-- <img src="../assets/question.svg" alt=""> -->
+              <span color="">
+                <img src="/images/ques.jpeg" alt="" />
                 <q-tooltip class="bg-indigo" :offset="[10, 10]">
                   <b> Step 1:</b> Login to your LinkedIn account on <br />
                   your desktop application <br />
@@ -57,7 +58,7 @@
                   hint: https://www.linkedin.com/in/your-other-linkedin-profile
                   details/
                 </q-tooltip>
-              </q-btn></label
+              </span></label
             >
             <br />
 
@@ -448,13 +449,42 @@
               any capacity: (E.g. Education, Food & Beverage, Construction)
             </label>
 
-            <div class="">
+            <!-- <div class="">
               <textarea
                 type="text"
                 name="industries"
                 v-model="industries"
                 placeholder=""
               />
+            </div> -->
+            <div class="input q-my-md" v-for="(input, k) in inputs" :key="k">
+              <!-- <q-input
+                v-model="inputs.indusries"
+                label="Enter (stacked)"
+                stack-label
+                name="indusries"
+                :dense="dense"
+              /> -->
+              <input
+                type="text"
+                name="indusries"
+                v-model="input.indusries"
+                placeholder=""
+              />
+              <span class="row no-wrap items-center">
+                <i
+                  class="fas poss fa-minus-circle"
+                  @click="remove(k)"
+                  v-show="k || (!k && inputs.length > 1)"
+                ></i>
+                <i
+                  class="fas pos fa-plus-circle"
+                  @click="add(k)"
+                  v-show="k == inputs.length - 1"
+                  >Add fields</i
+                >
+              </span>
+              <!-- <button @click="addInput">Submit</button> -->
             </div>
             <span
               v-if="inputErr === 'Missing Fields! Please specify indusries'"
@@ -636,7 +666,9 @@ export default {
   data() {
     return {
       referral_other: false,
+      inputs: [{}],
       othersInfo: "",
+      inputsVmodel: "",
       git_yes: false,
       gitInfo: "",
       figma_yes: false,
@@ -742,13 +774,22 @@ export default {
     setFile(prop) {
       this.inputImage = prop;
     },
+    add() {
+      this.inputs.push({
+        industries: "",
+      });
+      console.log(this.inputs);
+    },
+
+    remove(index) {
+      this.inputs.splice(index, 1);
+    },
     userData(key) {
       if (localStorage.getItem("userDetails")) {
         return JSON.parse(localStorage.getItem("userDetails"))[key];
       } else {
         this.$q.notify({
-          message:
-            "You need to enter your Login to or complete your registration",
+          message: "You need to Login to complete your registration",
           color: "primary",
           position: "top",
         });
@@ -789,7 +830,7 @@ export default {
       const state = this.timezone;
       const name = this.form.name;
       const email = this.form.email;
-      const linkedin_url = this.form.linkedin_url;
+      const linkedin_url = this.linkedin_url;
       const learning_track = this.learning_track;
       const referral = this.referral;
       const gitaccount = this.gitaccount;
@@ -810,14 +851,14 @@ export default {
       const referral_other = this.othersInfo;
       const professional_experience = this.professional_experience;
 
-      const industries = this.industries;
+      const industries = JSON.stringify(this.inputs);
 
       const prior_knowledge = this.prior_knowledge;
       const prior_knowledge_other_info = this.prior_knowledge_other_info;
 
       let sentData = {
-        name,
-        email,
+        // name,
+        // email,
         linkedin_url,
         learning_track,
         referral,
@@ -1053,6 +1094,7 @@ input::placeholder {
   /* identical to box height, or 170% */
   margin-top: 15px;
   align-items: center;
+  /* display: flex; */
   letter-spacing: 0.3px;
   color: #000;
 }
@@ -1069,6 +1111,11 @@ input::placeholder {
 }
 .input-wrap {
   margin: 2rem 0;
+  position: relative;
+}
+
+.input-wrap img {
+  width: 20px;
 }
 .input-wrap,
 select {
@@ -1093,6 +1140,24 @@ select {
   display: flex;
   align-items: center;
   height: 50px;
+  position: relative;
+}
+
+.poss {
+  color: #000;
+  font-size: 13px;
+  text-transform: capitalize;
+  color: #f2594b;
+}
+
+.pos {
+  position: absolute;
+  bottom: -55%;
+  left: 90%;
+  color: #000;
+  font-size: 13px;
+  text-transform: capitalize !important;
+  color: #f2594b;
 }
 textarea {
   padding: 0.75rem;
