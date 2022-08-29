@@ -45,7 +45,7 @@
 
             <div class="input-wrap">
               <label class="form-det" for="">Linkedin Profile URL <q-btn color="grey">
-      <img src="../assets/question.svg" alt="">
+      <img src="./public/images/question.svg" alt="">
         <q-tooltip class="bg-indigo" :offset="[10, 10]">
          <b> Step 1:</b> Login to your LinkedIn account on <br> your desktop application <br />
         <b>Step 2</b>: Navigate to your profile <br>
