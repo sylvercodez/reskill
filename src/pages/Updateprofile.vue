@@ -42,9 +42,17 @@
               />
             </div>
           </div>
-          
+
             <div class="input-wrap">
-              <label class="form-det" for="">Linkedin Profile URL</label> <br />
+              <label class="form-det" for="">Linkedin Profile URL <q-btn color="grey">
+      <img src="../assets/question.svg" alt="">
+        <q-tooltip class="bg-indigo" :offset="[10, 10]">
+         <b> Step 1:</b> Login to your LinkedIn account on <br> your desktop application <br />
+        <b>Step 2</b>: Navigate to your profile <br>
+        <b>Step 3</b>: Copy the url to your profile from the header <br>
+        hint: https://www.linkedin.com/in/your-other-linkedin-profile details/
+        </q-tooltip>
+      </q-btn></label>  <br />
 
               <div class="input">
                 <i class="ri-shield-user-fill q-mr-md icon-enroll"></i>
@@ -58,9 +66,9 @@
               </div>
             </div>
 
-            
-              
-                
+
+
+
           <div class="two">
             <div class="input-wrap">
               <label class="form-det" for=""
@@ -117,7 +125,7 @@
 
                 <select name="representation" v-model="representation" id="">
                   <option value="native american">American Indian or Alaskan Native</option>
-                
+
                   <option value="black">Black (not of Hispanic origin)</option>
                   <option value="hispanic"> Hispanic (Including persons of Mexican, Puerto RIcan, Cuban, and Central or South American origin</option>
                   <option value="pacific islander">Pacific Islander</option>
@@ -216,7 +224,7 @@
                 <option value="Trade/technical/vocational training">
                   Trade/technical/vocational training
                 </option>
-                <option value="Associate Degree">Associate Degree</option>
+                <option value="Associate’s degree">Associate’s degree</option>
 
                 <option value="Bachelor’s Degree">Bachelor’s Degree</option>
 
@@ -319,23 +327,21 @@
               <i class="ri-inbox-fill q-mr-md icon-enroll"></i>
 
               <select name="prior_knowledge" v-model="prior_knowledge" id="">
-                <option value="I know nothing about software development.">
-                  I know nothing about software development
+                <option value="I knew nothing about software development. ">
+                  I knew nothing about software development.
                 </option>
                 <option
-                  value="I knew basic software development/design principles."
+                  value="I knew basic software development/design principles. "
                 >
-                  I knew basic software development / design principles
+                I knew basic software development/design principles.
                 </option>
                 <option
-                  value="I had a little software development/design on my own watching YouTube, coding challenges etc., but wanted to get formal training."
+                  value="I had a little knowledge from watching YouTube and coding challenges, but wanted to get formal training. "
                 >
-                  I had a little software development/design on my own watching
-                  YouTube, coding challenges etc., but wanted to get formal
-                  training
+                I had a little knowledge from watching YouTube and coding challenges, but wanted to get formal training.
                 </option>
-                <option value="I am proficient but needed a refresher course.">
-                  I am proficient but needed a refresher course.
+                <option value="I am proficient, but need a refresher course. ">
+                  I am proficient, but need a refresher course.
                 </option>
                 <option value="Others">Other</option>
               </select>
@@ -360,33 +366,7 @@
               />
             </div>
           </div>
-          <div class="input-wrap">
-            <label class="form-det" for=""
-              >Which best describes your tech experience:
-            </label>
-            <br />
 
-            <div class="input">
-              <i class="ri-inbox-fill q-mr-md icon-enroll"></i>
-
-              <select name="tech_experience" v-model="tech_experience" id="">
-                <option value="No experience">No experience</option>
-                <option value="Some experience/novice">
-                  Some experience/novice/self-learner
-                </option>
-                <option value=" Experienced/advanced beginner">
-                  Experienced/advanced beginner
-                </option>
-              </select>
-            </div>
-            <span
-              v-if="
-                inputErr === 'Missing Fields! Please specify Tech Experience'
-              "
-              class="error"
-              >{{ inputErr }}</span
-            >
-          </div>
 
           <div class="">
             <div class="input-wrap">
@@ -436,10 +416,10 @@
                   v-model="professional_experience"
                   id=""
                 >
-                  <option value="5 - 10years">5 - 10years</option>
-                  <option value="10 - 15years">10 - 15years</option>
-                  <option value="20 - 25years">20 - 25years</option>
-                  <option value="More than 25years">More than 25years</option>
+                  <option value="5 - 10 years">5 - 10 years</option>
+                  <option value="10 - 15 years">10 - 15 years</option>
+                  <option value="20 - 25 years">20 - 25 years</option>
+                  <option value="More than 25 years">More than 25 years</option>
                 </select>
               </div>
               <span
@@ -452,59 +432,11 @@
               >
             </div>
           </div>
+
+
           <div class="input-wrap">
             <label class="form-det" for=""
-              >Are you open to meeting with tech companies during the training
-              program?
-            </label>
-            <br />
-
-            <div class="input">
-              <i class="ri-timer-fill q-mr-md icon-enroll"></i>
-
-              <select name="open_to_meet" v-model="open_to_meet" id="">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
-            </div>
-          </div>
-          <div class="input-wrap">
-            <label class="form-det" for=""
-              >Do you hope to change your job post RA training
-            </label>
-            <br />
-
-            <div class="input">
-              <i class="ri-timer-fill q-mr-md icon-enroll"></i>
-
-              <select name="will_change_job" v-model="will_change_job" id="">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
-            </div>
-          </div>
-          <div v-if="show_change_job" class="input-wrap">
-            <label class="form-det" for=""
-              >If so, what sort of role are you looking for when you complete
-              the program?
-            </label>
-
-            <div class="input">
-              <input
-                type="text"
-                row="5"
-                name="will_change_job_role"
-                v-model="will_change_job_role"
-                placeholder=""
-              />
-            </div>
-            <!-- <span v-if="inputErr" class="error">{{ inputErr }}</span> -->
-            <!-- <span class="error">{{ field__of__studyErr }}</span> -->
-          </div>
-          <div class="input-wrap">
-            <label class="form-det" for=""
-              >All of the industries in which you have worked(in any capacity) -
-              one-per-line
+              >Please list all of the industries in which you have worked, in any capacity: (E.g. Education, Food & Beverage, Construction)
             </label>
 
             <div class="">
@@ -715,7 +647,7 @@ export default {
       representation: "",
       employment_status: "",
       git_yes: "",
-      tech_experience: "",
+      h_experience: "",
       hours_per_week: "",
       age_group: "",
       highest_school: "",
@@ -726,14 +658,13 @@ export default {
       phone: "",
       referral_other: "",
       professional_experience: "",
-      will_change_job: "",
-      open_to_meet: "",
+
       prior_knowledge: "",
       prior_knowledge_other: false,
       prior_knowledge_other_info: "",
       show_change_job: false,
       industries: "",
-      will_change_job_role: "",
+
       inputErr: "",
       inputImage: null,
       imageFile: [],
@@ -756,7 +687,7 @@ export default {
         gitaccount: this.userData("gitaccount"),
         figmaaccount: this.userData("figmaaccount"),
         representation: this.userData("representation"),
-        tech_experience: this.userData("tech_experience"),
+
         timezone: this.userData("timezone"),
       },
     };
@@ -797,17 +728,7 @@ export default {
         this.figmaInfo = "";
       }
     },
-    will_change_job: function () {
-      if (this.will_change_job === "yes") {
-        this.show_change_job = true;
-      } else {
-        // console.log(this.figmaaccount);
-        // this.figma_yes = false;
-        this.show_change_job = false;
 
-        this.will_change_job_role = "";
-      }
-    },
   },
   methods: {
     setFile(prop) {
@@ -869,7 +790,7 @@ export default {
       const representation = this.representation;
       const employment_status = this.employment_status;
       const git_yes = this.gitInfo;
-      const tech_experience = this.tech_experience;
+
       const hours_per_week = this.hours_per_week;
       const age_group = this.age_group;
       const highest_school = this.highest_school;
@@ -880,12 +801,12 @@ export default {
       const phone = this.phone;
       const referral_other = this.othersInfo;
       const professional_experience = this.professional_experience;
-      const will_change_job = this.will_change_job;
+
       const industries = this.industries;
-      const will_change_job_role = this.will_change_job_role;
+
       const prior_knowledge = this.prior_knowledge;
       const prior_knowledge_other_info = this.prior_knowledge_other_info;
-      const open_to_meet = this.open_to_meet;
+
 
       let sentData = {
         name,
@@ -899,7 +820,7 @@ export default {
         representation,
         employment_status,
         // git_yes,
-        tech_experience,
+
         hours_per_week,
         age_group,
         highest_school,
@@ -934,15 +855,15 @@ export default {
       formDataa.append("can_work_in_usa", can_work_in_usa);
       formDataa.append("field__of__study", field__of__study);
       formDataa.append("hours_per_week", hours_per_week);
-      formDataa.append("tech_experience", tech_experience);
+
       formDataa.append("age_group", age_group);
       formDataa.append("git_yes", git_yes);
       formDataa.append("figma_yes", figma_yes);
       formDataa.append("professional_experience", professional_experience);
-      formDataa.append("will_change_job", will_change_job);
+
       formDataa.append("industries", industries);
       formDataa.append("prior_knowledge", prior_knowledge);
-      formDataa.append("open_to_meet", open_to_meet);
+
       formDataa.append("linkedin_url", linkedin_url);
 
       formDataa.append("_method", "PUT");
@@ -992,16 +913,6 @@ export default {
         return;
       } else {
         formDataa.append("othersInfo", referral_other);
-      }
-      if (this.will_change_job === "yes" && this.will_change_job_role === "") {
-        this.$q.notify({
-          message: "What role would you want is required",
-          color: "primary",
-          position: "top",
-        });
-        return;
-      } else {
-        formDataa.append("will_change_job_role", will_change_job_role);
       }
 
       if (this.can_work_in_usa === "No") {
@@ -1119,6 +1030,10 @@ input::placeholder {
   align-items: center;
 }
 .checkbos{
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
 transform: scale(1.5);
 margin-right: 17px;
 }

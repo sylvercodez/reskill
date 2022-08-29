@@ -50,10 +50,10 @@
           </div>
 
 
-          
 
 
-          
+
+
 
 
 
@@ -130,11 +130,11 @@ export default {
                     position: "top",
                   });
                 })
-      
+
        }
 
   },
- 
+
   methods: {
     loginWithLinkedin(){
       this.loading = true
@@ -142,7 +142,7 @@ export default {
       //   location.href = 'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=77iglwja8hmidg&redirect_uri=http://localhost:8085&scope=r_emailaddress,r_liteprofile'
       // }else{
       // let code = this.$route.query.code
-      // let redirect_uri = 'http://localhost:8085'
+      // let redirect_uri = 'http://localhost:8080z'
 
       // let loginData = {
       //   code, redirect_uri
@@ -173,10 +173,10 @@ export default {
       //           }).catch(({response})=>{
       //             console.log(response)
       //           })
-      
+
       //  }
 
-      
+
 
       console.log(window.location.origin, this.$route.query.code)
     },
@@ -756,7 +756,7 @@ width: 220px;
 .buttonss{
    height: 73px;
    width: 80%;
-   
+
 
 }
 }
