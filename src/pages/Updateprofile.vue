@@ -49,20 +49,19 @@
               >Linkedin Profile URL
               <span color="">
                
-                <q-dialog v-model="alert">
+              <div id="q-app" style="min-height: 100vh;">
+  <div class="q-pa-md q-gutter-sm">
+    <q-btn label="info" color="primary" @click="alert = true"></q-btn>
+  
+
+    <q-dialog v-model="alert">
       <q-card>
         <q-card-section>
-         <div class="text-h6">Info</div>
+          <div class="text-h6">How to</div>
         </q-card-section>
 
         <q-card-section class="q-pt-none">
-          <b> Step 1:</b> Login to your LinkedIn account on <br />
-                  your desktop application <br />
-                  <b>Step 2</b>: Navigate to your profile <br />
-                  <b>Step 3</b>: Copy the url to your profile from the header
-                  <br />
-                  hint: https://www.linkedin.com/in/your-other-linkedin-profile
-                  details/
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum repellendus sit voluptate voluptas eveniet porro. Rerum blanditiis perferendis totam, ea at omnis vel numquam exercitationem aut, natus minima, porro labore.
         </q-card-section>
 
         <q-card-actions align="right">
@@ -70,15 +69,9 @@
         </q-card-actions>
       </q-card>
     </q-dialog>
-                <q-tooltip class="bg-indigo" :offset="[10, 10]">
-                  <b> Step 1:</b> Login to your LinkedIn account on <br />
-                  your desktop application <br />
-                  <b>Step 2</b>: Navigate to your profile <br />
-                  <b>Step 3</b>: Copy the url to your profile from the header
-                  <br />
-                  hint: https://www.linkedin.com/in/your-other-linkedin-profile
-                  details/
-                </q-tooltip>
+
+  </div>
+</div>
               </span></label
             >
             <br />
