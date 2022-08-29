@@ -52,7 +52,7 @@
                 <q-dialog v-model="alert">
       <q-card>
         <q-card-section>
-          <img src="/images/ques.jpeg" alt="" />
+         <div class="text-h6">Info</div>
         </q-card-section>
 
         <q-card-section class="q-pt-none">
