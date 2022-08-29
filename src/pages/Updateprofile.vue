@@ -18,13 +18,13 @@
             <div class="input">
               <i class="ri-user-fill q-mr-md icon-enroll"></i>
 
-              <!-- <input
+              <input
                 disabled
                 name="name"
                 type="text"
                 v-model="form.name"
                 placeholder="Ademola"
-              /> -->
+              />
             </div>
           </div>
 
@@ -34,13 +34,13 @@
             <div class="input">
               <i class="ri-mail-line q-mr-md icon-enroll"></i>
 
-              <!-- <input
+              <input
                 disabled
                 type="email"
                 name="email"
                 v-model="form.email"
                 placeholder="Enter your email"
-              /> -->
+              />
             </div>
           </div>
 
