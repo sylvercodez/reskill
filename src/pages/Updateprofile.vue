@@ -1175,6 +1175,7 @@ select {
   bottom: -55%;
   left: 90%;
   color: #000;
+  top: 22px;
   font-size: 13px;
   text-transform: capitalize !important;
   color: #f2594b;
