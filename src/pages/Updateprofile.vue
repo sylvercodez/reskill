@@ -48,7 +48,31 @@
             <label class="form-det" for=""
               >Linkedin Profile URL
               <span color="">
-               
+               <div id="q-app">
+  <div class="q-pa-md q-gutter-sm">
+    <q-btn label="Alert" color="primary" @click="alert = true"></q-btn>
+   
+
+    <q-dialog v-model="alert">
+      <q-card>
+        <q-card-section>
+          <div class="text-h6">Info</div>
+        </q-card-section>
+
+        <q-card-section class="q-pt-none">
+         <b> Step 1:</b> Login to your LinkedIn account on <br> your desktop application <br />
+        <b>Step 2</b>: Navigate to your profile <br>
+        <b>Step 3</b>: Copy the url to your profile from the header <br>
+        hint: https://www.linkedin.com/in/your-other-linkedin-profile details/
+        </q-card-section>
+
+       
+      </q-card>
+    </q-dialog>
+
+   
+  </div>
+</div>
             
               </span></label
             >
@@ -650,11 +674,16 @@ export default {
     };
 
     return {
+    alert: ref(false),
+      confirm: ref(false),
+      prompt: ref(false),
       image,
       handleUpload,
       acknowledge: ref(false),
     };
   },
+    app.use(Quasar, { config: {} })
+app.mount('#q-app')
   data() {
     return {
       referral_other: false,
