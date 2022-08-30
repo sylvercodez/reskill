@@ -45,12 +45,12 @@
           </div>
 
           <div class="input-wrap">
-            <label class="form-det" for=""
+            <label class="form-det" for="" style="display:flex; flex-direction:role;"
               >Linkedin Profile URL
               <span color="">
                <div id="q-app">
-  <div class="q-pa-md q-gutter-sm">
-    <q-btn label="Alert" color="primary" @click="alert = true"></q-btn>
+  <div class="">
+    <q-btn label="Info" color="primary" @click="alert = true"></q-btn>
    
 
     <q-dialog v-model="alert">
