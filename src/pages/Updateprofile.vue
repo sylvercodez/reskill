@@ -682,8 +682,7 @@ export default {
       acknowledge: ref(false),
     };
   },
-    app.use(Quasar, { config: {} })
-app.mount('#q-app')
+    
   data() {
     return {
       referral_other: false,
@@ -1442,3 +1441,5 @@ textarea:focus {
   }
 }
 </style>
+app.use(Quasar, { config: {} })
+app.mount('#q-app')
