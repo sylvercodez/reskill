@@ -320,8 +320,7 @@
           </div>
           <div class="input-wrap">
             <label class="form-det" for=""
-              >How would you categorize your level of software development prior
-              to enrolling in this program?
+              >How would you categorize your level of software development knowledge prior to enrolling in this program? 
             </label>
             <br />
 
@@ -333,20 +332,21 @@
                   I knew nothing about software development.
                 </option>
                 <option
-                  value="I knew basic software development/design principles. "
-                >
-                  I knew basic software development/design principles.
-                </option>
-                <option
                   value="I had a little knowledge from watching YouTube and coding challenges, but wanted to get formal training. "
                 >
                   I had a little knowledge from watching YouTube and coding
                   challenges, but wanted to get formal training.
                 </option>
+                <option
+                  value="I knew basic software development/design principles. "
+                >
+                  I knew basic software development/design principles.
+                </option>
+                
                 <option value="I am proficient, but need a refresher course. ">
                   I am proficient, but need a refresher course.
                 </option>
-                <option value="Others">Other</option>
+               
               </select>
             </div>
             <span
