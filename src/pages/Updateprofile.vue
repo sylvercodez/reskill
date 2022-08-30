@@ -44,15 +44,33 @@
           </div>
 
             <div class="input-wrap">
-              <label class="form-det" for="">Linkedin Profile URL <q-btn color="grey">
-      <img src="./public/images/question.svg" alt="">
-        <q-tooltip class="bg-indigo" :offset="[10, 10]">
+              <label class="form-det" for="">Linkedin Profile URL
+              <div id="q-app">
+  <div class="q-pa-md q-gutter-sm">
+    <q-btn label="Alert" color="primary" @click="alert = true"></q-btn>
+   
+
+    <q-dialog v-model="alert">
+      <q-card>
+        <q-card-section>
+          <div class="text-h6">Info</div>
+        </q-card-section>
+
+        <q-card-section class="q-pt-none">
          <b> Step 1:</b> Login to your LinkedIn account on <br> your desktop application <br />
         <b>Step 2</b>: Navigate to your profile <br>
         <b>Step 3</b>: Copy the url to your profile from the header <br>
         hint: https://www.linkedin.com/in/your-other-linkedin-profile details/
-        </q-tooltip>
-      </q-btn></label>  <br />
+        </q-card-section>
+
+       
+      </q-card>
+    </q-dialog>
+
+   
+  </div>
+</div>
+             </label>  <br />
 
               <div class="input">
                 <i class="ri-shield-user-fill q-mr-md icon-enroll"></i>
@@ -599,6 +617,7 @@ import { QSpinnerGears } from "quasar";
 import { ref } from "vue";
 export default {
   setup() {
+
     const $q = useQuasar();
     let timer;
 
@@ -619,11 +638,18 @@ export default {
     };
 
     return {
+       alert: ref(false),
+      confirm: ref(false),
+      prompt: ref(false),
+
+      address: ref('')
       image,
       handleUpload,
       acknowledge: ref(false),
     };
   },
+  app.use(Quasar, { config: {} })
+app.mount('#q-app')
   data() {
     return {
       referral_other: false,
