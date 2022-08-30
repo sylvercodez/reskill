@@ -55,10 +55,7 @@
 
     <q-dialog v-model="alert">
       <q-card>
-        <q-card-section>
-          <div class="text-h6">Info</div>
-        </q-card-section>
-
+     
         <q-card-section class="q-pt-none">
          <b> Step 1:</b> Login to your LinkedIn account on <br> your desktop application <br />
         <b>Step 2</b>: Navigate to your profile <br>
