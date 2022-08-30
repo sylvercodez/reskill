@@ -86,7 +86,29 @@
               />
             </div>
           </div>
+ <div class="input-wrap">
+            <label class="form-det" for=""
+              >Are you authorized to legally work in the U.S.?
+            </label>
+            <br />
+            <div class="input">
+              <i class="ri-flag-fill q-mr-md icon-enroll"></i>
 
+              <select name="can_work_in_usa" v-model="can_work_in_usa" id="">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+
+            <span
+              v-if="
+                inputErr ===
+                'Missing Fields! Please choose if you can work in USA'
+              "
+              class="error"
+              >{{ inputErr }}</span
+            >
+          </div>
           <div class="two">
             <div class="input-wrap">
               <label class="form-det" for=""
@@ -286,29 +308,7 @@
             >
           </div>
 
-          <div class="input-wrap">
-            <label class="form-det" for=""
-              >Are you authorized to legally work in the U.S.?
-            </label>
-            <br />
-            <div class="input">
-              <i class="ri-flag-fill q-mr-md icon-enroll"></i>
-
-              <select name="can_work_in_usa" v-model="can_work_in_usa" id="">
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
-            </div>
-
-            <span
-              v-if="
-                inputErr ===
-                'Missing Fields! Please choose if you can work in USA'
-              "
-              class="error"
-              >{{ inputErr }}</span
-            >
-          </div>
+         
 
           <div class="input-wrap">
             <label class="form-det" for=""
@@ -424,37 +424,7 @@
                 >{{ inputErr }}</span
               >
             </div>
-            <div class="input-wrap">
-              <label class="form-det" for=""
-                >Years of professional experience (including non-office
-                environments)
-              </label>
-              <br />
-
-              <div class="input">
-                <i class="ri-timer-fill q-mr-md icon-enroll"></i>
-
-                <select
-                  name="professional_experience"
-                  v-model="professional_experience"
-                  id=""
-                >
-                  <option value="5 - 10 years">5 - 10 years</option>
-                  <option value="10 - 15 years">10 - 15 years</option>
-                  <option value="20 - 25 years">20 - 25 years</option>
-                  <option value="More than 25 years">More than 25 years</option>
-                </select>
-              </div>
-              <span
-                v-if="
-                  inputErr ===
-                  'Missing Fields! Please choose Hours available Per Week'
-                "
-                class="error"
-                >{{ inputErr }}</span
-              >
-            </div>
-          </div>
+            
 
           <div class="input-wrap">
             <label class="form-det" for=""
@@ -491,7 +461,8 @@
                   v-show="k || (!k && inputs.length > 1)"
                 ></i>
                 <i
-                  class="fas pos fa-plus-circle"
+                  class="fas pos fa-plus-circle" 
+                  style="padding-top:10px;"
                   @click="add(k)"
                   v-show="k == inputs.length - 1"
                   >Add fields</i
@@ -504,6 +475,38 @@
               class="error"
               >{{ inputErr }}</span
             >
+          </div>
+          <div class="input-wrap">
+              <label class="form-det" for=""
+                >Years of professional experience (including non-office
+                environments)
+              </label>
+              <br />
+
+              <div class="input">
+                <i class="ri-timer-fill q-mr-md icon-enroll"></i>
+
+                <select
+                  name="professional_experience"
+                  v-model="professional_experience"
+                  id=""
+                >
+                  <option value="5 - 10 years">5 - 10 years</option>
+                  <option value="10 - 15 years">10 - 15 years</option>
+                  <option value="16 - 19 years">16 - 19 years</option>
+                  <option value="20 - 25 years">20 - 25 years</option>
+                  <option value="More than 25 years">More than 25 years</option>
+                </select>
+              </div>
+              <span
+                v-if="
+                  inputErr ===
+                  'Missing Fields! Please choose Hours available Per Week'
+                "
+                class="error"
+                >{{ inputErr }}</span
+              >
+            </div>
           </div>
           <div class="input-wrap">
             <label class="form-det" for=""
