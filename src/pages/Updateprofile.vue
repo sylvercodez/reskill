@@ -1419,5 +1419,16 @@ textarea:focus {
     border-radius: 8px;
     font-size: 12px;
   }
+  .pos {
+    color: #f2594b;
+    bottom: 0;
+    font-size: 10px;
+    left: 70%;
+    width: fit-content;
+    top: 90% !important;
+  }
+  .input-wrap {
+    margin: 3rem 0;
+  }
 }
 </style>
