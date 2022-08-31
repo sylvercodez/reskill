@@ -45,19 +45,32 @@
           </div>
 
           <div class="input-wrap">
-            <label class="form-det" for=""
+            <label class="form-det" for="" style="display:flex; flex-direction:role;"
               >Linkedin Profile URL
               <span color="">
-                <img src="/images/ques.jpeg" alt="" />
-                <q-tooltip class="bg-indigo" :offset="[10, 10]">
-                  <b> Step 1:</b> Login to your LinkedIn account on <br />
-                  your desktop application <br />
-                  <b>Step 2</b>: Navigate to your profile <br />
-                  <b>Step 3</b>: Copy the url to your profile from the header
-                  <br />
-                  hint: https://www.linkedin.com/in/your-other-linkedin-profile
-                  details/
-                </q-tooltip>
+               <div id="q-app">
+  <div class="">
+    <q-btn label="Info" color="primary" @click="alert = true"></q-btn>
+   
+
+    <q-dialog v-model="alert">
+      <q-card>
+     
+        <q-card-section class="q-pt-none">
+         <b> Step 1:</b> Login to your LinkedIn account on <br> your desktop application <br />
+        <b>Step 2</b>: Navigate to your profile <br>
+        <b>Step 3</b>: Copy the url to your profile from the header <br>
+        hint: https://www.linkedin.com/in/your-other-linkedin-profile details/
+        </q-card-section>
+
+       
+      </q-card>
+    </q-dialog>
+
+   
+  </div>
+</div>
+            
               </span></label
             >
             <br />
@@ -73,7 +86,29 @@
               />
             </div>
           </div>
+ <div class="input-wrap">
+            <label class="form-det" for=""
+              >Are you authorized to legally work in the U.S.?
+            </label>
+            <br />
+            <div class="input">
+              <i class="ri-flag-fill q-mr-md icon-enroll"></i>
 
+              <select name="can_work_in_usa" v-model="can_work_in_usa" id="">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+
+            <span
+              v-if="
+                inputErr ===
+                'Missing Fields! Please choose if you can work in USA'
+              "
+              class="error"
+              >{{ inputErr }}</span
+            >
+          </div>
           <div class="two">
             <div class="input-wrap">
               <label class="form-det" for=""
@@ -273,29 +308,7 @@
             >
           </div>
 
-          <div class="input-wrap">
-            <label class="form-det" for=""
-              >Are you authorized to legally work in the U.S.?
-            </label>
-            <br />
-            <div class="input">
-              <i class="ri-flag-fill q-mr-md icon-enroll"></i>
-
-              <select name="can_work_in_usa" v-model="can_work_in_usa" id="">
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
-            </div>
-
-            <span
-              v-if="
-                inputErr ===
-                'Missing Fields! Please choose if you can work in USA'
-              "
-              class="error"
-              >{{ inputErr }}</span
-            >
-          </div>
+         
 
           <div class="input-wrap">
             <label class="form-det" for=""
@@ -310,8 +323,8 @@
                 <option value="Full-Stack Web Development">
                   Full-Stack Web Development
                 </option>
-                <option value="UI/UX Product Design">
-                  UI/UX Product Design
+                <option value="UI/UX Design">
+                  UI/UX Design
                 </option>
                 <option value=" I haven't decided yet">
                   I haven't decided yet
@@ -328,8 +341,7 @@
           </div>
           <div class="input-wrap">
             <label class="form-det" for=""
-              >How would you categorize your level of software development prior
-              to enrolling in this program?
+              >How would you categorize your level of software development knowledge prior to enrolling in this program? 
             </label>
             <br />
 
@@ -341,20 +353,21 @@
                   I knew nothing about software development.
                 </option>
                 <option
-                  value="I knew basic software development/design principles. "
-                >
-                  I knew basic software development/design principles.
-                </option>
-                <option
                   value="I had a little knowledge from watching YouTube and coding challenges, but wanted to get formal training. "
                 >
                   I had a little knowledge from watching YouTube and coding
                   challenges, but wanted to get formal training.
                 </option>
+                <option
+                  value="I knew basic software development/design principles. "
+                >
+                  I knew basic software development/design principles.
+                </option>
+                
                 <option value="I am proficient, but need a refresher course. ">
                   I am proficient, but need a refresher course.
                 </option>
-                <option value="Others">Other</option>
+               
               </select>
             </div>
             <span
@@ -411,37 +424,7 @@
                 >{{ inputErr }}</span
               >
             </div>
-            <div class="input-wrap">
-              <label class="form-det" for=""
-                >Years of professional experience (including non-office
-                environments)
-              </label>
-              <br />
-
-              <div class="input">
-                <i class="ri-timer-fill q-mr-md icon-enroll"></i>
-
-                <select
-                  name="professional_experience"
-                  v-model="professional_experience"
-                  id=""
-                >
-                  <option value="5 - 10 years">5 - 10 years</option>
-                  <option value="10 - 15 years">10 - 15 years</option>
-                  <option value="20 - 25 years">20 - 25 years</option>
-                  <option value="More than 25 years">More than 25 years</option>
-                </select>
-              </div>
-              <span
-                v-if="
-                  inputErr ===
-                  'Missing Fields! Please choose Hours available Per Week'
-                "
-                class="error"
-                >{{ inputErr }}</span
-              >
-            </div>
-          </div>
+            
 
           <div class="input-wrap">
             <label class="form-det" for=""
@@ -478,7 +461,8 @@
                   v-show="k || (!k && inputs.length > 1)"
                 ></i>
                 <i
-                  class="fas pos fa-plus-circle"
+                  class="fas pos fa-plus-circle" 
+                  style="padding-top:10px;"
                   @click="add(k)"
                   v-show="k == inputs.length - 1"
                   >Add fields</i
@@ -491,6 +475,38 @@
               class="error"
               >{{ inputErr }}</span
             >
+          </div>
+          <div class="input-wrap">
+              <label class="form-det" for=""
+                >Years of professional experience (including non-office
+                environments)
+              </label>
+              <br />
+
+              <div class="input">
+                <i class="ri-timer-fill q-mr-md icon-enroll"></i>
+
+                <select
+                  name="professional_experience"
+                  v-model="professional_experience"
+                  id=""
+                >
+                  <option value="5 - 10 years">5 - 10 years</option>
+                  <option value="10 - 15 years">10 - 15 years</option>
+                  <option value="16 - 19 years">16 - 19 years</option>
+                  <option value="20 - 25 years">20 - 25 years</option>
+                  <option value="More than 25 years">More than 25 years</option>
+                </select>
+              </div>
+              <span
+                v-if="
+                  inputErr ===
+                  'Missing Fields! Please choose Hours available Per Week'
+                "
+                class="error"
+                >{{ inputErr }}</span
+              >
+            </div>
           </div>
           <div class="input-wrap">
             <label class="form-det" for=""
@@ -658,11 +674,15 @@ export default {
     };
 
     return {
+    alert: ref(false),
+      confirm: ref(false),
+      prompt: ref(false),
       image,
       handleUpload,
       acknowledge: ref(false),
     };
   },
+    
   data() {
     return {
       referral_other: false,
@@ -1155,6 +1175,7 @@ select {
   bottom: -55%;
   left: 90%;
   color: #000;
+  top: 22px;
   font-size: 13px;
   text-transform: capitalize !important;
   color: #f2594b;
@@ -1432,3 +1453,5 @@ textarea:focus {
   }
 }
 </style>
+app.use(Quasar, { config: {} })
+app.mount('#q-app')
