@@ -139,7 +139,7 @@ export default {
     loginWithLinkedin(){
       this.loading = true
       // if(!this.$route.query.code){
-      //   location.href = 'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=77iglwja8hmidg&redirect_uri=http://localhost:8085&scope=r_emailaddress,r_liteprofile'
+      //   location.href = 'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=86p7qxbuxiqvqo&redirect_uri=http://localhost:8085&scope=r_emailaddress,r_liteprofile'
       // }else{
       // let code = this.$route.query.code
       // let redirect_uri = 'http://localhost:8085'
@@ -155,7 +155,7 @@ export default {
       // })
       // }
        if(this.$route.query.code === undefined){
-            location.href = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=77iglwja8hmidg&redirect_uri=${window.location.origin}&scope=r_emailaddress,r_liteprofile`
+            location.href = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=86p7qxbuxiqvqo&redirect_uri=${window.location.origin}&scope=r_emailaddress,r_liteprofile`
        }else{
          this.loading = false
        }
