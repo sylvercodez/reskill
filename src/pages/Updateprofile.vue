@@ -45,32 +45,37 @@
           </div>
 
           <div class="input-wrap">
-            <label class="form-det" for="" style="display:flex; flex-direction:role;"
+            <label
+              class="form-det"
+              for=""
+              style="display: flex; flex-direction: role"
               >Linkedin Profile URL
               <span color="">
-               <div id="q-app">
-  <div class="">
-    <q-btn label="Info" color="primary" @click="alert = true"></q-btn>
-   
+                <div id="q-app">
+                  <div class="">
+                    <q-btn
+                      label="Info"
+                      color="primary"
+                      @click="alert = true"
+                    ></q-btn>
 
-    <q-dialog v-model="alert">
-      <q-card>
-     
-        <q-card-section class="q-pt-none">
-         <b> Step 1:</b> Login to your LinkedIn account on <br> your desktop application <br />
-        <b>Step 2</b>: Navigate to your profile <br>
-        <b>Step 3</b>: Copy the url to your profile from the header <br>
-        hint: https://www.linkedin.com/in/your-other-linkedin-profile details/
-        </q-card-section>
-
-       
-      </q-card>
-    </q-dialog>
-
-   
-  </div>
-</div>
-            
+                    <q-dialog v-model="alert">
+                      <q-card>
+                        <q-card-section class="q-pt-none">
+                          <b> Step 1:</b> Login to your LinkedIn account on
+                          <br />
+                          your desktop application <br />
+                          <b>Step 2</b>: Navigate to your profile <br />
+                          <b>Step 3</b>: Copy the url to your profile from the
+                          header <br />
+                          hint:
+                          https://www.linkedin.com/in/your-other-linkedin-profile
+                          details/
+                        </q-card-section>
+                      </q-card>
+                    </q-dialog>
+                  </div>
+                </div>
               </span></label
             >
             <br />
@@ -86,7 +91,7 @@
               />
             </div>
           </div>
- <div class="input-wrap">
+          <div class="input-wrap">
             <label class="form-det" for=""
               >Are you authorized to legally work in the U.S.?
             </label>
@@ -308,8 +313,6 @@
             >
           </div>
 
-         
-
           <div class="input-wrap">
             <label class="form-det" for=""
               >Which learning track are you considering?
@@ -323,9 +326,7 @@
                 <option value="Full-Stack Web Development">
                   Full-Stack Web Development
                 </option>
-                <option value="UI/UX Design">
-                  UI/UX Design
-                </option>
+                <option value="UI/UX Design">UI/UX Design</option>
                 <option value=" I haven't decided yet">
                   I haven't decided yet
                 </option>
@@ -341,7 +342,8 @@
           </div>
           <div class="input-wrap">
             <label class="form-det" for=""
-              >How would you categorize your level of software development knowledge prior to enrolling in this program? 
+              >How would you categorize your level of software development
+              knowledge prior to enrolling in this program?
             </label>
             <br />
 
@@ -363,11 +365,10 @@
                 >
                   I knew basic software development/design principles.
                 </option>
-                
+
                 <option value="I am proficient, but need a refresher course. ">
                   I am proficient, but need a refresher course.
                 </option>
-               
               </select>
             </div>
             <span
@@ -424,15 +425,14 @@
                 >{{ inputErr }}</span
               >
             </div>
-            
 
-          <div class="input-wrap">
-            <label class="form-det" for=""
-              >Please list all of the industries in which you have worked, in
-              any capacity: (E.g. Education, Food & Beverage, Construction)
-            </label>
+            <div class="input-wrap">
+              <label class="form-det" for=""
+                >Please list all of the industries in which you have worked, in
+                any capacity: (E.g. Education, Food & Beverage, Construction)
+              </label>
 
-            <!-- <div class="">
+              <!-- <div class="">
               <textarea
                 type="text"
                 name="industries"
@@ -440,43 +440,43 @@
                 placeholder=""
               />
             </div> -->
-            <div class="input q-my-md" v-for="(input, k) in inputs" :key="k">
-              <!-- <q-input
+              <div class="input q-my-md" v-for="(input, k) in inputs" :key="k">
+                <!-- <q-input
                 v-model="inputs.indusries"
                 label="Enter (stacked)"
                 stack-label
                 name="indusries"
                 :dense="dense"
               /> -->
-              <input
-                type="text"
-                name="indusries"
-                v-model="input.indusries"
-                placeholder=""
-              />
-              <span class="row no-wrap items-center">
-                <i
-                  class="fas poss fa-minus-circle"
-                  @click="remove(k)"
-                  v-show="k || (!k && inputs.length > 1)"
-                ></i>
-                <i
-                  class="fas pos fa-plus-circle" 
-                  style="padding-top:10px;"
-                  @click="add(k)"
-                  v-show="k == inputs.length - 1"
-                  >Add fields</i
-                >
-              </span>
-              <!-- <button @click="addInput">Submit</button> -->
+                <input
+                  type="text"
+                  name="indusries"
+                  v-model="input.indusries"
+                  placeholder=""
+                />
+                <span class="row no-wrap items-center">
+                  <i
+                    class="fas poss fa-minus-circle"
+                    @click="remove(k)"
+                    v-show="k || (!k && inputs.length > 1)"
+                  ></i>
+                  <i
+                    class="fas pos fa-plus-circle"
+                    style="padding-top: 10px"
+                    @click="add(k)"
+                    v-show="k == inputs.length - 1"
+                    >Add fields</i
+                  >
+                </span>
+                <!-- <button @click="addInput">Submit</button> -->
+              </div>
+              <span
+                v-if="inputErr === 'Missing Fields! Please specify indusries'"
+                class="error"
+                >{{ inputErr }}</span
+              >
             </div>
-            <span
-              v-if="inputErr === 'Missing Fields! Please specify indusries'"
-              class="error"
-              >{{ inputErr }}</span
-            >
-          </div>
-          <div class="input-wrap">
+            <div class="input-wrap">
               <label class="form-det" for=""
                 >Years of professional experience (including non-office
                 environments)
@@ -674,7 +674,7 @@ export default {
     };
 
     return {
-    alert: ref(false),
+      alert: ref(false),
       confirm: ref(false),
       prompt: ref(false),
       image,
@@ -682,7 +682,7 @@ export default {
       acknowledge: ref(false),
     };
   },
-    
+
   data() {
     return {
       referral_other: false,
@@ -1453,5 +1453,4 @@ textarea:focus {
   }
 }
 </style>
-app.use(Quasar, { config: {} })
-app.mount('#q-app')
+// app.use(Quasar, { config: {} }) // app.mount('#q-app')
