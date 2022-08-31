@@ -442,16 +442,16 @@
             </div> -->
               <div class="input q-my-md" v-for="(input, k) in inputs" :key="k">
                 <!-- <q-input
-                v-model="inputs.indusries"
+                v-model="inputs.industries"
                 label="Enter (stacked)"
                 stack-label
-                name="indusries"
+                name="industries"
                 :dense="dense"
               /> -->
                 <input
                   type="text"
-                  name="indusries"
-                  v-model="input.indusries"
+                  name="industries"
+                  v-model="input.industries"
                   placeholder=""
                 />
                 <span class="row no-wrap items-center">
@@ -471,7 +471,7 @@
                 <!-- <button @click="addInput">Submit</button> -->
               </div>
               <span
-                v-if="inputErr === 'Missing Fields! Please specify indusries'"
+                v-if="inputErr === 'Missing Fields! Please specify industries'"
                 class="error"
                 >{{ inputErr }}</span
               >
@@ -700,7 +700,7 @@ export default {
       state: "",
       name: "",
       email: "",
-      linkedin_url: "",
+     
       learning_track: "",
       referral: "",
       gitaccount: "",
@@ -880,7 +880,7 @@ export default {
       let sentData = {
         // name,
         // email,
-        linkedin_url,
+       
         learning_track,
         referral,
         gitaccount,
@@ -933,7 +933,7 @@ export default {
       formDataa.append("industries", industries);
       formDataa.append("prior_knowledge", prior_knowledge);
 
-      formDataa.append("linkedin_url", linkedin_url);
+   
 
       formDataa.append("_method", "PUT");
 
