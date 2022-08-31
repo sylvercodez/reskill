@@ -6,6 +6,7 @@
       </div>
       <!-- {{ phone }} -->
       <!-- {{ inputs }} -->
+      {{ inpu }}
 
       <!-- <div class="error" v-if="inputErr">
         {{ inputErr }}
@@ -652,6 +653,7 @@ import { useQuasar, QSpinnerFacebook } from "quasar";
 import { onBeforeUnmount } from "vue";
 import { QSpinnerGears } from "quasar";
 import { ref } from "vue";
+import { object } from "yup/lib/locale";
 export default {
   setup() {
     const $q = useQuasar();
@@ -686,7 +688,11 @@ export default {
   data() {
     return {
       referral_other: false,
-      inputs: [{}],
+      inputs: [
+        {
+          industries: "",
+        },
+      ],
       othersInfo: "",
       inputsVmodel: "",
       git_yes: false,
@@ -717,6 +723,7 @@ export default {
       can_work_in_usa: "",
       gender: "",
       phone: "",
+      inpu: [],
       referral_other: "",
       professional_experience: "",
 
@@ -872,7 +879,13 @@ export default {
       const referral_other = this.othersInfo;
       const professional_experience = this.professional_experience;
 
-      const industries = JSON.stringify(this.inputs);
+      this.inputs.map((item) => {
+        let keys = Object.values(item);
+        console.log(keys);
+        this.inpu.push(keys.toString());
+      });
+      // const industries = JSON.stringify(this.inputs);
+      const industries = this.inpu;
 
       const prior_knowledge = this.prior_knowledge;
       const prior_knowledge_other_info = this.prior_knowledge_other_info;
@@ -1174,8 +1187,9 @@ select {
   bottom: -55%;
   left: 90%;
   color: #000;
-  top: 22px;
+  top: 92%;
   font-size: 13px;
+  width: fit-content;
   text-transform: capitalize !important;
   color: #f2594b;
 }
