@@ -87,7 +87,7 @@
                 type="text"
                 name="linkedin_url"
                 id="te"
-                v-model="linkedin_url"
+                v-model="form.linkedin_url"
               />
             </div>
           </div>
@@ -700,7 +700,7 @@ export default {
       state: "",
       name: "",
       email: "",
-      linkedin_url: "",
+     
       learning_track: "",
       referral: "",
       gitaccount: "",
@@ -850,7 +850,7 @@ export default {
       const state = this.timezone;
       const name = this.form.name;
       const email = this.form.email;
-      const linkedin_url = this.linkedin_url;
+      const linkedin_url = this.form.linkedin_url;
       const learning_track = this.learning_track;
       const referral = this.referral;
       const gitaccount = this.gitaccount;
@@ -879,7 +879,7 @@ export default {
       let sentData = {
         // name,
         // email,
-        linkedin_url,
+       
         learning_track,
         referral,
         gitaccount,
@@ -932,7 +932,7 @@ export default {
       formDataa.append("industries", industries);
       formDataa.append("prior_knowledge", prior_knowledge);
 
-      formDataa.append("linkedin_url", linkedin_url);
+   
 
       formDataa.append("_method", "PUT");
 
