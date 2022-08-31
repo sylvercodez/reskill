@@ -87,7 +87,7 @@
                 type="text"
                 name="linkedin_url"
                 id="te"
-                v-model="form.linkedin_url"
+                v-model="linkedin_url"
               />
             </div>
           </div>
@@ -850,7 +850,7 @@ export default {
       const state = this.timezone;
       const name = this.form.name;
       const email = this.form.email;
-      const linkedin_url = this.form.linkedin_url;
+      const linkedin_url = this.linkedin_url;
       const learning_track = this.learning_track;
       const referral = this.referral;
       const gitaccount = this.gitaccount;
