@@ -126,7 +126,7 @@
 
                 <input
                   type="text"
-                  name="timezone"
+                  name="city"
                   v-model="timezone"
                   placeholder=""
                 />
@@ -700,7 +700,7 @@ export default {
       state: "",
       name: "",
       email: "",
-     
+
       learning_track: "",
       referral: "",
       gitaccount: "",
@@ -880,7 +880,7 @@ export default {
       let sentData = {
         // name,
         // email,
-       
+
         learning_track,
         referral,
         gitaccount,
@@ -916,7 +916,7 @@ export default {
       formDataa.append("gitaccount", gitaccount);
       formDataa.append("employment_status", employment_status);
       formDataa.append("linkedin_url", linkedin_url);
-      formDataa.append("timezone", timezone);
+      formDataa.append("city", timezone);
       formDataa.append("email", email);
       formDataa.append("referral", referral);
       formDataa.append("learning_track", learning_track);
@@ -932,8 +932,6 @@ export default {
 
       formDataa.append("industries", industries);
       formDataa.append("prior_knowledge", prior_knowledge);
-
-   
 
       formDataa.append("_method", "PUT");
 
