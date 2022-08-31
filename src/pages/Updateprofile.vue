@@ -741,6 +741,7 @@ export default {
         linkedin_url: this.userData("linkedin_url"),
         location: this.userData("location"),
         name: this.userData("name"),
+        photo: this.userData("photo"),
 
         phone: this.userData("phone"),
         referral: this.userData("referral"),
@@ -855,7 +856,7 @@ export default {
       const referral = this.referral;
       const gitaccount = this.gitaccount;
       const figmaaccount = this.figmaaccount;
-      let photo = this.image;
+      let photo = this.form.photo;
       const representation = this.representation;
       const employment_status = this.employment_status;
       const git_yes = this.gitInfo;
