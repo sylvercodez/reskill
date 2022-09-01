@@ -54,7 +54,7 @@
               <span color="">
                 <div id="q-app">
                   <div class="">
-                  <img src="/public/images/question.svg" @click="alert = true" />
+                 <img src="/images/ques.jpeg" alt="" @click="alert = true" />
 
                     <q-dialog v-model="alert">
                       <q-card>
