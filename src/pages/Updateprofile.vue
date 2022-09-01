@@ -1144,6 +1144,7 @@ input::placeholder {
 
 .input-wrap img {
   width: 20px;
+  padding-left:10px;
 }
 .input-wrap,
 select {
