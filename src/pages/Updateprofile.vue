@@ -699,7 +699,7 @@ export default {
       loading: false,
       timezone: "",
       city: "",
-      state: "",
+    
       name: "",
       email: "",
 
@@ -851,7 +851,7 @@ export default {
       console.log("first");
       const timezone = this.timezone;
       const city = this.timezone;
-      const state = this.timezone;
+     
       const name = this.form.name;
       const email = this.form.email;
       const linkedin_url = this.linkedin_url;
@@ -909,7 +909,7 @@ export default {
         phone,
         // referral_other,
         city,
-        state,
+       
       };
       let form = e.currentTarget;
       console.log(form);
