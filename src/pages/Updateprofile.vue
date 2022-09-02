@@ -5,8 +5,10 @@
         <h4 class="header-text">Enroll Now</h4>
       </div>
       <!-- {{ phone }} -->
+      <!-- {{ inpu }} -->
       <!-- {{ inputs }} -->
-    
+      <!-- {{ industriesArray }} -->
+      <!-- {{ getInp }} -->
 
       <!-- <div class="error" v-if="inputErr">
         {{ inputErr }}
@@ -54,7 +56,7 @@
               <span color="">
                 <div id="q-app">
                   <div class="">
-                 <img src="/images/ques.jpeg" alt="" @click="alert = true" />
+                    <img src="/images/ques.jpeg" alt="" @click="alert = true" />
 
                     <q-dialog v-model="alert">
                       <q-card>
@@ -699,7 +701,8 @@ export default {
       loading: false,
       timezone: "",
       city: "",
-    
+      industriesArray: [],
+
       name: "",
       email: "",
 
@@ -784,6 +787,7 @@ export default {
         this.gitInfo = "";
       }
     },
+
     figmaaccount: function () {
       if (this.figmaaccount === "figma_yes") {
         this.figma_yes = true;
@@ -793,7 +797,37 @@ export default {
         this.figmaInfo = "";
       }
     },
+    inputs: {
+      handler: function (val, oldVal) {
+        // console.log(val);
+        // console.log(oldVal);
+        // console.log("a thing changed");
+        let newArr = this.inputs.filter((item) => item.industries !== "");
+        // console.log(newArr.toString());
+        // this.industriesArray = newArr;
+        this.industriesArray = newArr.map((indus) => {
+          let keys = Object.values(indus);
+          return keys.toString();
+        });
+      },
+      deep: true,
+    },
   },
+  // computed: {
+  //   getInp() {
+  //     console.log(this.industriesArray);
+  //     this.industriesArray.map((industries) => {
+  //       console.log(industries.industries);
+  //       let keys = Object.values(industries);
+  //       this.inpu.push(keys.toString());
+  //       // let keys = Object.values(industries);
+  //       // console.log(keys);
+  //       // this.inpu.push(keys.toString());
+  //       // this.inpu = [...this.inpu, industries.industries];
+  //     });
+  //   },
+  // },
+
   methods: {
     setFile(prop) {
       this.inputImage = prop;
@@ -807,6 +841,7 @@ export default {
 
     remove(index) {
       this.inputs.splice(index, 1);
+      this.inpu.slice(index, 1);
     },
     userData(key) {
       if (localStorage.getItem("userDetails")) {
@@ -851,7 +886,7 @@ export default {
       console.log("first");
       const timezone = this.timezone;
       const city = this.timezone;
-     
+
       const name = this.form.name;
       const email = this.form.email;
       const linkedin_url = this.linkedin_url;
@@ -875,13 +910,8 @@ export default {
       const referral_other = this.othersInfo;
       const professional_experience = this.professional_experience;
 
-      this.inputs.map((item) => {
-        let keys = Object.values(item);
-        console.log(keys);
-        this.inpu.push(keys.toString());
-      });
       // const industries = JSON.stringify(this.inputs);
-      const industries = this.inpu;
+      const industries = this.industriesArray;
 
       const prior_knowledge = this.prior_knowledge;
       const prior_knowledge_other_info = this.prior_knowledge_other_info;
@@ -909,7 +939,6 @@ export default {
         phone,
         // referral_other,
         city,
-       
       };
       let form = e.currentTarget;
       console.log(form);
@@ -919,6 +948,7 @@ export default {
       formDataa.append("photo", photo);
       formDataa.append("representation", representation);
       formDataa.append("name", name);
+      formDataa.append("industries", industries);
       formDataa.append("gender", gender);
       formDataa.append("phone", phone);
       formDataa.append("figmaaccount", figmaaccount);
@@ -939,7 +969,6 @@ export default {
       formDataa.append("figma_yes", figma_yes);
       formDataa.append("professional_experience", professional_experience);
 
-      formDataa.append("industries", industries);
       formDataa.append("prior_knowledge", prior_knowledge);
 
       formDataa.append("_method", "PUT");
@@ -1144,7 +1173,7 @@ input::placeholder {
 
 .input-wrap img {
   width: 20px;
-  padding-left:10px;
+  padding-left: 10px;
 }
 .input-wrap,
 select {
